@@ -1,0 +1,50 @@
+<TemplateGroup>
+  <Instances>
+    <Instance ID="Instance6f4641ece6154684a3fa5fb0940c982f" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.Discovery" Version="1.0.0.0">
+      <DiscoveryConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Id>Discovery.Relationship.McAfeeAgentContainsMcAfeeEndPointSecurity</Id>
+        <DisplayName>Discovery McAfeeAgent Contains McAfeeEndPointSecurity Relation</DisplayName>
+        <Description>Discovery McAfeeAgent Contains McAfeeEndPointSecurity Relation.</Description>
+        <DataSourceId>DS</DataSourceId>
+        <DataSourceConfig>&lt;IntervalSeconds&gt;3600&lt;/IntervalSeconds&gt;&lt;ComputerName&gt;$Target/Host/Property[Type="Windows!Microsoft.Windows.Computer"]/PrincipalName$&lt;/ComputerName&gt;&lt;InstanceType&gt;EndPointSecurity&lt;/InstanceType&gt;&lt;RegKeyMcAfeeAgent&gt;$Target/Property[Type="GripLogix.McAfee.McAfeeEndPointSecurity"]/RegKeyMcAfeeAgent$&lt;/RegKeyMcAfeeAgent&gt;</DataSourceConfig>
+        <DataSourceType>GripLogix.McAfee.DataSource.Discovery.McAfeeAgentContainsInstanceRelation</DataSourceType>
+        <Target>GripLogix.McAfee.McAfeeEndPointSecurity</Target>
+        <Enabled>true</Enabled>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <ConfirmDelivery>false</ConfirmDelivery>
+        <Category>Discovery</Category>
+        <DiscoveryClasses />
+        <DiscoveryRelationships>
+          <DiscoveryRelationshipItem>
+            <TypeId>GripLogix.McAfee.Relationship.McAfeeAgentContainsMcAfeeEndPointSecurity</TypeId>
+            <Properties />
+          </DiscoveryRelationshipItem>
+        </DiscoveryRelationships>
+      </DiscoveryConfig>
+    </Instance>
+    <Instance ID="Instanceb585d5badec546cfa946e32433f3572c" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.Discovery" Version="1.0.0.0">
+      <DiscoveryConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <Id>Discovery.Relationship.McAfeeAgentContainsMcAfeeMcShield</Id>
+        <DisplayName>Discovery McAfeeAgent Contains McAfeeMcShield Relation</DisplayName>
+        <Description>Discovery McAfeeAgent Contains McAfeeMcShield Relation.</Description>
+        <DataSourceId>DS</DataSourceId>
+        <DataSourceConfig>&lt;IntervalSeconds&gt;3600&lt;/IntervalSeconds&gt;&lt;ComputerName&gt;$Target/Host/Property[Type="Windows!Microsoft.Windows.Computer"]/PrincipalName$&lt;/ComputerName&gt;&lt;InstanceType&gt;McShield&lt;/InstanceType&gt;&lt;RegKeyMcAfeeAgent&gt;$Target/Property[Type="GripLogix.McAfee.McAfeeMcShield"]/RegKeyMcAfeeAgent$&lt;/RegKeyMcAfeeAgent&gt;</DataSourceConfig>
+        <DataSourceType>GripLogix.McAfee.DataSource.Discovery.McAfeeAgentContainsInstanceRelation</DataSourceType>
+        <Target>GripLogix.McAfee.McAfeeMcShield</Target>
+        <Enabled>true</Enabled>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <ConfirmDelivery>false</ConfirmDelivery>
+        <Category>Discovery</Category>
+        <DiscoveryClasses />
+        <DiscoveryRelationships>
+          <DiscoveryRelationshipItem>
+            <TypeId>GripLogix.McAfee.Relationship.McAfeeAgentContainsMcAfeeMcShield</TypeId>
+            <Properties />
+          </DiscoveryRelationshipItem>
+        </DiscoveryRelationships>
+      </DiscoveryConfig>
+    </Instance>
+  </Instances>
+</TemplateGroup>

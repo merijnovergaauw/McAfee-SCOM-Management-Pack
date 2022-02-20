@@ -1,0 +1,234 @@
+<TemplateGroup>
+  <Instances>
+    <Instance ID="Instance4e4568d78fc74c41910bf41e668bbba4" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.AlertRule" Version="1.0.0.0">
+      <AlertRuleConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <Id>Rule.Installation.McAfeeMcShield</Id>
+        <DisplayName>McAfee McShield installation (alerting)</DisplayName>
+        <Description>Monitors whether the McAfee McShield is not installed. </Description>
+        <Category>Alert</Category>
+        <ConfirmDelivery>false</ConfirmDelivery>
+        <Target>Windows!Microsoft.Windows.Computer</Target>
+        <Enabled>false</Enabled>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <DiscardLevel>100</DiscardLevel>
+        <DataSources>
+          <RuleDataSourceItem>
+            <DataSourceId>DS</DataSourceId>
+            <DataSourceConfig>&lt;ComputerName&gt;$Target/Property[Type='Windows!Microsoft.Windows.Computer']/NetworkName$&lt;/ComputerName&gt;&lt;RegistryAttributeDefinitions&gt;&lt;RegistryAttributeDefinition&gt;&lt;AttributeName&gt;RegExists&lt;/AttributeName&gt;&lt;Path&gt;SOFTWARE\Wow6432Node\Network Associates\ePolicy Orchestrator\Application Plugins\VIRUSCAN8800&lt;/Path&gt;&lt;PathType&gt;0&lt;/PathType&gt;&lt;AttributeType&gt;0&lt;/AttributeType&gt;&lt;/RegistryAttributeDefinition&gt;&lt;/RegistryAttributeDefinitions&gt;&lt;Frequency&gt;3600&lt;/Frequency&gt;</DataSourceConfig>
+            <DataSourceType>Windows!Microsoft.Windows.RegistryProvider</DataSourceType>
+          </RuleDataSourceItem>
+        </DataSources>
+        <ConditionDetectionConfig>&lt;Expression&gt;&lt;SimpleExpression&gt;&lt;ValueExpression&gt;&lt;XPathQuery Type="String"&gt;Values/RegExists&lt;/XPathQuery&gt;&lt;/ValueExpression&gt;&lt;Operator&gt;Equal&lt;/Operator&gt;&lt;ValueExpression&gt;&lt;Value Type="String"&gt;false&lt;/Value&gt;&lt;/ValueExpression&gt;&lt;/SimpleExpression&gt;&lt;/Expression&gt;</ConditionDetectionConfig>
+        <ConditionDetectionId>CD</ConditionDetectionId>
+        <ConditionDetectionType>System!System.ExpressionFilter</ConditionDetectionType>
+        <AlertPriority>Normal</AlertPriority>
+        <AlertSeverity>Information</AlertSeverity>
+        <AlertName>McAfee McShield is not installed</AlertName>
+        <AlertDescription>McAfee McShield is not installed.</AlertDescription>
+      </AlertRuleConfig>
+    </Instance>
+    <Instance ID="Instancedc9ce4b8a9f147d39a5337094275732e" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.AlertRule" Version="1.0.0.0">
+      <AlertRuleConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <Id>Rule.Installation.McAfeeMove</Id>
+        <DisplayName>McAfee Move Windows Service (alerting)</DisplayName>
+        <Description>Monitors whether McAfee Move is not installed.</Description>
+        <Category>Alert</Category>
+        <ConfirmDelivery>false</ConfirmDelivery>
+        <Target>Windows!Microsoft.Windows.Computer</Target>
+        <Enabled>false</Enabled>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <DiscardLevel>100</DiscardLevel>
+        <DataSources>
+          <RuleDataSourceItem>
+            <DataSourceId>DS</DataSourceId>
+            <DataSourceConfig>&lt;ComputerName&gt;$Target/Property[Type='Windows!Microsoft.Windows.Computer']/NetworkName$&lt;/ComputerName&gt;&lt;ServiceName&gt;Vsepflt&lt;/ServiceName&gt;&lt;Frequency&gt;3600&lt;/Frequency&gt;&lt;CheckStartupType&gt;false&lt;/CheckStartupType&gt;</DataSourceConfig>
+            <DataSourceType>Windows!Microsoft.Windows.Win32ServiceInformationProvider</DataSourceType>
+          </RuleDataSourceItem>
+        </DataSources>
+        <ConditionDetectionConfig>&lt;Expression&gt;&lt;SimpleExpression&gt;&lt;ValueExpression&gt;&lt;XPathQuery Type="Integer"&gt;Property[@Name='State']&lt;/XPathQuery&gt;&lt;/ValueExpression&gt;&lt;Operator&gt;Equal&lt;/Operator&gt;&lt;ValueExpression&gt;&lt;Value Type="Integer"&gt;8&lt;/Value&gt;&lt;/ValueExpression&gt;&lt;/SimpleExpression&gt;&lt;/Expression&gt;</ConditionDetectionConfig>
+        <ConditionDetectionId>CD</ConditionDetectionId>
+        <ConditionDetectionType>System!System.ExpressionFilter</ConditionDetectionType>
+        <AlertPriority>Normal</AlertPriority>
+        <AlertSeverity>Information</AlertSeverity>
+        <AlertName>McAfee Move is not installed</AlertName>
+        <AlertDescription>McAfee Move is not installed.
+Result: $Data/Property[@Name='State']$
+
+</AlertDescription>
+      </AlertRuleConfig>
+    </Instance>
+    <Instance ID="Instanceacd758710ebc472cbf168ccd437fb7c0" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.AlertRule" Version="1.0.0.0">
+      <AlertRuleConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <Id>Rule.Installation.McAfeeEndPointSecurity</Id>
+        <DisplayName>McAfee EndPoint Security installation (alerting)</DisplayName>
+        <Description>Monitors whether McAfee EndPoint Security is not installed.</Description>
+        <Category>Alert</Category>
+        <ConfirmDelivery>false</ConfirmDelivery>
+        <Target>Windows!Microsoft.Windows.Computer</Target>
+        <Enabled>false</Enabled>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <DiscardLevel>100</DiscardLevel>
+        <DataSources>
+          <RuleDataSourceItem>
+            <DataSourceId>DS</DataSourceId>
+            <DataSourceConfig>&lt;ComputerName&gt;$Target/Property[Type='Windows!Microsoft.Windows.Computer']/NetworkName$&lt;/ComputerName&gt;&lt;RegistryAttributeDefinitions&gt;&lt;RegistryAttributeDefinition&gt;&lt;AttributeName&gt;RegExists&lt;/AttributeName&gt;&lt;Path&gt;SOFTWARE\Wow6432Node\Network Associates\ePolicy Orchestrator\Application Plugins\ENDP_GS_1010&lt;/Path&gt;&lt;PathType&gt;0&lt;/PathType&gt;&lt;AttributeType&gt;0&lt;/AttributeType&gt;&lt;/RegistryAttributeDefinition&gt;&lt;/RegistryAttributeDefinitions&gt;&lt;Frequency&gt;3600&lt;/Frequency&gt;</DataSourceConfig>
+            <DataSourceType>Windows!Microsoft.Windows.RegistryProvider</DataSourceType>
+          </RuleDataSourceItem>
+        </DataSources>
+        <ConditionDetectionConfig>&lt;Expression&gt;&lt;SimpleExpression&gt;&lt;ValueExpression&gt;&lt;XPathQuery Type="String"&gt;Values/RegExists&lt;/XPathQuery&gt;&lt;/ValueExpression&gt;&lt;Operator&gt;Equal&lt;/Operator&gt;&lt;ValueExpression&gt;&lt;Value Type="String"&gt;false&lt;/Value&gt;&lt;/ValueExpression&gt;&lt;/SimpleExpression&gt;&lt;/Expression&gt;</ConditionDetectionConfig>
+        <ConditionDetectionId>CD</ConditionDetectionId>
+        <ConditionDetectionType>System!System.ExpressionFilter</ConditionDetectionType>
+        <AlertPriority>Normal</AlertPriority>
+        <AlertSeverity>Information</AlertSeverity>
+        <AlertName>McAfee EndPoint Security is not installed</AlertName>
+        <AlertDescription>McAfee EndPoint Security not instaled.</AlertDescription>
+      </AlertRuleConfig>
+    </Instance>
+    <Instance ID="Instance4ae8c0a2fa3144a599ba36e52e0ec44f" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.AlertRule" Version="1.0.0.0">
+      <AlertRuleConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <Id>Rule.Installation.McAfeeThreadPrevention</Id>
+        <DisplayName>McAfee Thread Prevention installation (alerting)</DisplayName>
+        <Description>Monitors whether the McAfee Thread Prevention is not installed.</Description>
+        <Category>Alert</Category>
+        <ConfirmDelivery>false</ConfirmDelivery>
+        <Target>Windows!Microsoft.Windows.Computer</Target>
+        <Enabled>false</Enabled>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <DiscardLevel>100</DiscardLevel>
+        <DataSources>
+          <RuleDataSourceItem>
+            <DataSourceId>DS</DataSourceId>
+            <DataSourceConfig>&lt;ComputerName&gt;$Target/Property[Type='Windows!Microsoft.Windows.Computer']/NetworkName$&lt;/ComputerName&gt;&lt;RegistryAttributeDefinitions&gt;&lt;RegistryAttributeDefinition&gt;&lt;AttributeName&gt;RegExists&lt;/AttributeName&gt;&lt;Path&gt;SOFTWARE\Wow6432Node\Network Associates\ePolicy Orchestrator\Application Plugins\ENDP_AM_1010&lt;/Path&gt;&lt;PathType&gt;0&lt;/PathType&gt;&lt;AttributeType&gt;0&lt;/AttributeType&gt;&lt;/RegistryAttributeDefinition&gt;&lt;/RegistryAttributeDefinitions&gt;&lt;Frequency&gt;3600&lt;/Frequency&gt;</DataSourceConfig>
+            <DataSourceType>Windows!Microsoft.Windows.RegistryProvider</DataSourceType>
+          </RuleDataSourceItem>
+        </DataSources>
+        <ConditionDetectionConfig>&lt;Expression&gt;&lt;SimpleExpression&gt;&lt;ValueExpression&gt;&lt;XPathQuery Type="String"&gt;Values/RegExists&lt;/XPathQuery&gt;&lt;/ValueExpression&gt;&lt;Operator&gt;Equal&lt;/Operator&gt;&lt;ValueExpression&gt;&lt;Value Type="String"&gt;false&lt;/Value&gt;&lt;/ValueExpression&gt;&lt;/SimpleExpression&gt;&lt;/Expression&gt;</ConditionDetectionConfig>
+        <ConditionDetectionId>CD</ConditionDetectionId>
+        <ConditionDetectionType>System!System.ExpressionFilter</ConditionDetectionType>
+        <AlertPriority>Normal</AlertPriority>
+        <AlertSeverity>Information</AlertSeverity>
+        <AlertName>McAfee Thread Prevention is not installed</AlertName>
+        <AlertDescription>McAfee Thread Prevention is not installed.</AlertDescription>
+      </AlertRuleConfig>
+    </Instance>
+    <Instance ID="Instancee4f1c03f655e4e78b5d305bb82727d1b" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.AlertRule" Version="1.0.0.0">
+      <AlertRuleConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <Id>Rule.Installation.McAfeeAgent</Id>
+        <DisplayName>McAfee Agent installation (alerting)</DisplayName>
+        <Description>Monitors whether the McAfee Agent is not installed.</Description>
+        <Category>Alert</Category>
+        <ConfirmDelivery>false</ConfirmDelivery>
+        <Target>Windows!Microsoft.Windows.Computer</Target>
+        <Enabled>false</Enabled>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <DiscardLevel>100</DiscardLevel>
+        <DataSources>
+          <RuleDataSourceItem>
+            <DataSourceId>DS</DataSourceId>
+            <DataSourceConfig>&lt;ComputerName&gt;$Target/Property[Type='Windows!Microsoft.Windows.Computer']/NetworkName$&lt;/ComputerName&gt;&lt;RegistryAttributeDefinitions&gt;&lt;RegistryAttributeDefinition&gt;&lt;AttributeName&gt;RegExists&lt;/AttributeName&gt;&lt;Path&gt;SOFTWARE\Wow6432Node\Network Associates\ePolicy Orchestrator\Agent&lt;/Path&gt;&lt;PathType&gt;0&lt;/PathType&gt;&lt;AttributeType&gt;0&lt;/AttributeType&gt;&lt;/RegistryAttributeDefinition&gt;&lt;/RegistryAttributeDefinitions&gt;&lt;Frequency&gt;3600&lt;/Frequency&gt;</DataSourceConfig>
+            <DataSourceType>Windows!Microsoft.Windows.RegistryProvider</DataSourceType>
+          </RuleDataSourceItem>
+        </DataSources>
+        <ConditionDetectionConfig>&lt;Expression&gt;&lt;SimpleExpression&gt;&lt;ValueExpression&gt;&lt;XPathQuery Type="String"&gt;Values/RegExists&lt;/XPathQuery&gt;&lt;/ValueExpression&gt;&lt;Operator&gt;Equal&lt;/Operator&gt;&lt;ValueExpression&gt;&lt;Value Type="String"&gt;false&lt;/Value&gt;&lt;/ValueExpression&gt;&lt;/SimpleExpression&gt;&lt;/Expression&gt;</ConditionDetectionConfig>
+        <ConditionDetectionId>CD</ConditionDetectionId>
+        <ConditionDetectionType>System!System.ExpressionFilter</ConditionDetectionType>
+        <AlertPriority>Normal</AlertPriority>
+        <AlertSeverity>Information</AlertSeverity>
+        <AlertName>McAfee Agent is not installed</AlertName>
+        <AlertDescription>McAfee Agent is not installed.</AlertDescription>
+      </AlertRuleConfig>
+    </Instance>
+    <Instance ID="Instance35988d8294484136982f7734e8428972" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.CustomRule" Version="1.0.0.0">
+      <CustomRuleConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <Id>Rule.PatchLevel.McShield</Id>
+        <DisplayName>McAfee McShield Hotfix Version (alerting)</DisplayName>
+        <Description>Alert Rule for McShield Hotfix Version.</Description>
+        <Category>Alert</Category>
+        <ConfirmDelivery>false</ConfirmDelivery>
+        <Target>GripLogix!GripLogix.McAfee.McAfeeMcShield</Target>
+        <Enabled>true</Enabled>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <DiscardLevel>100</DiscardLevel>
+        <DataSources>
+          <RuleDataSourceItem>
+            <DataSourceId>DS</DataSourceId>
+            <DataSourceConfig>&lt;IntervalSeconds&gt;14400&lt;/IntervalSeconds&gt;&lt;SyncTime /&gt;&lt;RegKeyPath&gt;HKLM:\\SOFTWARE\Wow6432Node\Network Associates\ePolicy Orchestrator\Application Plugins\VIRUSCAN*&lt;/RegKeyPath&gt;&lt;RegValue&gt;HotfixVersions&lt;/RegValue&gt;&lt;Threshold&gt;4&lt;/Threshold&gt;&lt;Debug&gt;false&lt;/Debug&gt;</DataSourceConfig>
+            <DataSourceType>GripLogix.McAfee.DataSource.Condition.PSRegCheckRegValue.PropertyBag</DataSourceType>
+          </RuleDataSourceItem>
+        </DataSources>
+        <ConditionDetectionId>CD</ConditionDetectionId>
+        <WriteActions>
+          <RuleWriteActionItem>
+            <WriteActionId>WA</WriteActionId>
+            <WriteActionConfig>&lt;Priority&gt;1&lt;/Priority&gt;&lt;Severity&gt;1&lt;/Severity&gt;&lt;AlertMessageId&gt;$MPElement[Name="GripLogix.McAfee.Monitoring.Rule.PatchLevel.McShield.AlertMessage"]$&lt;/AlertMessageId&gt;&lt;AlertParameters&gt;&lt;AlertParameter1&gt;$Data/Property[@Name='HotfixVersions']$&lt;/AlertParameter1&gt;&lt;AlertParameter2&gt;$Data/Property[@Name='Error']$&lt;/AlertParameter2&gt;&lt;/AlertParameters&gt;&lt;Suppression&gt;&lt;SuppressionValue&gt;$Data/Property[@Name='HotfixVersions']$&lt;/SuppressionValue&gt;&lt;/Suppression&gt;</WriteActionConfig>
+            <WriteActionType>Health!System.Health.GenerateAlert</WriteActionType>
+          </RuleWriteActionItem>
+        </WriteActions>
+      </CustomRuleConfig>
+    </Instance>
+    <Instance ID="Instancef818d14a046840a290b5f728a69893b6" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.CustomRule" Version="1.0.0.0">
+      <CustomRuleConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <Id>Rule.PatchLevel.EndPointSecurity</Id>
+        <DisplayName>McAfee EndPoint Security Patch Level (alerting)</DisplayName>
+        <Description>Alert Rule for EndPoint Security Patch Level.</Description>
+        <Category>Alert</Category>
+        <ConfirmDelivery>false</ConfirmDelivery>
+        <Target>GripLogix!GripLogix.McAfee.McAfeeEndPointSecurity</Target>
+        <Enabled>true</Enabled>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <DiscardLevel>100</DiscardLevel>
+        <DataSources>
+          <RuleDataSourceItem>
+            <DataSourceId>DS</DataSourceId>
+            <DataSourceConfig>&lt;IntervalSeconds&gt;14400&lt;/IntervalSeconds&gt;&lt;SyncTime /&gt;&lt;RegKeyPath&gt;HKLM:\\SOFTWARE\Wow6432Node\Network Associates\ePolicy Orchestrator\Application Plugins\ENDP_GS_*&lt;/RegKeyPath&gt;&lt;RegValue&gt;PatchVersion&lt;/RegValue&gt;&lt;Threshold&gt;2&lt;/Threshold&gt;&lt;Debug&gt;false&lt;/Debug&gt;</DataSourceConfig>
+            <DataSourceType>GripLogix.McAfee.DataSource.Condition.PSRegCheckRegValue.PropertyBag</DataSourceType>
+          </RuleDataSourceItem>
+        </DataSources>
+        <ConditionDetectionId>CD</ConditionDetectionId>
+        <WriteActions>
+          <RuleWriteActionItem>
+            <WriteActionId>WA</WriteActionId>
+            <WriteActionConfig>&lt;Priority&gt;1&lt;/Priority&gt;&lt;Severity&gt;1&lt;/Severity&gt;&lt;AlertMessageId&gt;$MPElement[Name="GripLogix.McAfee.Monitoring.Rule.PatchLevel.EndPointSecurity.AlertMessage"]$&lt;/AlertMessageId&gt;&lt;AlertParameters&gt;&lt;AlertParameter1&gt;$Data/Property[@Name='PatchVersion']$&lt;/AlertParameter1&gt;&lt;AlertParameter2&gt;$Data/Property[@Name='Error']$&lt;/AlertParameter2&gt;&lt;/AlertParameters&gt;&lt;Suppression&gt;&lt;SuppressionValue&gt;$Data/Property[@Name='PatchVersion']$&lt;/SuppressionValue&gt;&lt;/Suppression&gt;</WriteActionConfig>
+            <WriteActionType>Health!System.Health.GenerateAlert</WriteActionType>
+          </RuleWriteActionItem>
+        </WriteActions>
+      </CustomRuleConfig>
+    </Instance>
+    <Instance ID="Instance781fa61456eb4de1897dcd4a5b14bfd1" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.CustomRule" Version="1.0.0.0">
+      <CustomRuleConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <Id>Rule.PatchLevel.ThreadPrevention</Id>
+        <DisplayName>McAfee Thread Prevention Patch Level (alerting)</DisplayName>
+        <Description>Alert Rule for Thread Prevention Patch Level.</Description>
+        <Category>Alert</Category>
+        <ConfirmDelivery>false</ConfirmDelivery>
+        <Target>GripLogix!GripLogix.McAfee.McAfeeThreadPrevention</Target>
+        <Enabled>true</Enabled>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <DiscardLevel>100</DiscardLevel>
+        <DataSources>
+          <RuleDataSourceItem>
+            <DataSourceId>DS</DataSourceId>
+            <DataSourceConfig>&lt;IntervalSeconds&gt;14400&lt;/IntervalSeconds&gt;&lt;SyncTime /&gt;&lt;RegKeyPath&gt;HKLM:\\SOFTWARE\Wow6432Node\Network Associates\ePolicy Orchestrator\Application Plugins\ENDP_AM_*&lt;/RegKeyPath&gt;&lt;RegValue&gt;PatchVersion&lt;/RegValue&gt;&lt;Threshold&gt;2&lt;/Threshold&gt;&lt;Debug&gt;false&lt;/Debug&gt;</DataSourceConfig>
+            <DataSourceType>GripLogix.McAfee.DataSource.Condition.PSRegCheckRegValue.PropertyBag</DataSourceType>
+          </RuleDataSourceItem>
+        </DataSources>
+        <ConditionDetectionId>CD</ConditionDetectionId>
+        <WriteActions>
+          <RuleWriteActionItem>
+            <WriteActionId>WA</WriteActionId>
+            <WriteActionConfig>&lt;Priority&gt;1&lt;/Priority&gt;&lt;Severity&gt;1&lt;/Severity&gt;&lt;AlertMessageId&gt;$MPElement[Name="GripLogix.McAfee.Monitoring.Rule.PatchLevel.ThreadPrevention.AlertMessage"]$&lt;/AlertMessageId&gt;&lt;AlertParameters&gt;&lt;AlertParameter1&gt;$Data/Property[@Name='PatchVersion']$&lt;/AlertParameter1&gt;&lt;AlertParameter2&gt;$Data/Property[@Name='Error']$&lt;/AlertParameter2&gt;&lt;/AlertParameters&gt;&lt;Suppression&gt;&lt;SuppressionValue&gt;$Data/Property[@Name='PatchVersion']$&lt;/SuppressionValue&gt;&lt;/Suppression&gt;</WriteActionConfig>
+            <WriteActionType>Health!System.Health.GenerateAlert</WriteActionType>
+          </RuleWriteActionItem>
+        </WriteActions>
+      </CustomRuleConfig>
+    </Instance>
+  </Instances>
+</TemplateGroup>

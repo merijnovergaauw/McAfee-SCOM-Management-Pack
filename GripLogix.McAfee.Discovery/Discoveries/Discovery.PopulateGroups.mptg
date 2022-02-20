@@ -1,0 +1,119 @@
+<TemplateGroup>
+  <Instances>
+    <Instance ID="Instance3d5876a2e98b4569931758d52012d10f" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.Discovery" Version="1.0.0.0">
+      <DiscoveryConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Id>Discovery.PopulateMcAfeeMoveAgentlessGroup</Id>
+        <DisplayName>Discovery Populate McAfeeMoveAgentless Group</DisplayName>
+        <Description>Populates McAfeeMoveAgentless Group</Description>
+        <DataSourceId>DS</DataSourceId>
+        <DataSourceConfig>&lt;RuleId&gt;$MPElement$&lt;/RuleId&gt;&lt;GroupInstanceId&gt;$Target/Id$&lt;/GroupInstanceId&gt;&lt;MembershipRules&gt;&lt;MembershipRule&gt;&lt;MonitoringClass&gt;$MPElement[Name="GripLogix.McAfee.McAfeeMoveAgentless"]$&lt;/MonitoringClass&gt;&lt;RelationshipClass&gt;$MPElement[Name="GripLogix.McAfee.Relationship.McAfeeMoveAgentlessGroupContainsMcAfeeMoveAgentless"]$&lt;/RelationshipClass&gt;&lt;/MembershipRule&gt;&lt;/MembershipRules&gt;</DataSourceConfig>
+        <DataSourceType>SC!Microsoft.SystemCenter.GroupPopulator</DataSourceType>
+        <Target>GripLogix.McAfee.McAfeeMoveAgentlessGroup</Target>
+        <Enabled>true</Enabled>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <ConfirmDelivery>false</ConfirmDelivery>
+        <Category>Discovery</Category>
+        <DiscoveryClasses />
+        <DiscoveryRelationships>
+          <DiscoveryRelationshipItem>
+            <TypeId>MSIL!Microsoft.SystemCenter.InstanceGroupContainsEntities</TypeId>
+            <Properties />
+          </DiscoveryRelationshipItem>
+        </DiscoveryRelationships>
+      </DiscoveryConfig>
+    </Instance>
+    <Instance ID="Instance64795c6892d34b1b84bb0f5a0cf5fdc2" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.Discovery" Version="1.0.0.0">
+      <DiscoveryConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Id>Discovery.PopulateMcAfeeAgentHandlerGroup</Id>
+        <DisplayName>Discovery Populate McAfeeAgent Handler Group</DisplayName>
+        <Description>Populates McAfeeAgent Handler Group</Description>
+        <DataSourceId>DS</DataSourceId>
+        <DataSourceConfig>&lt;RuleId&gt;$MPElement$&lt;/RuleId&gt;&lt;GroupInstanceId&gt;$Target/Id$&lt;/GroupInstanceId&gt;&lt;MembershipRules&gt;&lt;MembershipRule&gt;&lt;MonitoringClass&gt;$MPElement[Name="GripLogix.McAfee.McAfeeAgentHandler"]$&lt;/MonitoringClass&gt;&lt;RelationshipClass&gt;$MPElement[Name="GripLogix.McAfee.Relationship.McAfeeAgentHandlerGroupContainsMcAfeeAgentHandler"]$&lt;/RelationshipClass&gt;&lt;/MembershipRule&gt;&lt;/MembershipRules&gt;</DataSourceConfig>
+        <DataSourceType>SC!Microsoft.SystemCenter.GroupPopulator</DataSourceType>
+        <Target>GripLogix.McAfee.McAfeeAgentHandlerGroup</Target>
+        <Enabled>true</Enabled>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <ConfirmDelivery>false</ConfirmDelivery>
+        <Category>Discovery</Category>
+        <DiscoveryClasses />
+        <DiscoveryRelationships>
+          <DiscoveryRelationshipItem>
+            <TypeId>MSIL!Microsoft.SystemCenter.InstanceGroupContainsEntities</TypeId>
+            <Properties />
+          </DiscoveryRelationshipItem>
+        </DiscoveryRelationships>
+      </DiscoveryConfig>
+    </Instance>
+    <Instance ID="Instance6fd6ce9e3d51406b9fc7880f41e6ded9" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.Discovery" Version="1.0.0.0">
+      <DiscoveryConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <Id>Discovery.PopulateMcAfeeService</Id>
+        <DisplayName>Discovery Populate McAfee Service</DisplayName>
+        <Description>Populates McAfee Service.</Description>
+        <DataSourceId>DS</DataSourceId>
+        <DataSourceConfig>&lt;RuleId&gt;$MPElement$&lt;/RuleId&gt;&lt;GroupInstanceId&gt;$Target/Id$&lt;/GroupInstanceId&gt;&lt;MembershipRules&gt;&lt;MembershipRule&gt;&lt;MonitoringClass&gt;$MPElement[Name="GripLogix.McAfee.McAfeeAgentGroup"]$&lt;/MonitoringClass&gt;&lt;RelationshipClass&gt;$MPElement[Name="GripLogix.McAfee.Relationship.McAfeeServiceContainsMcAfeeAgentGroup"]$&lt;/RelationshipClass&gt;&lt;/MembershipRule&gt;&lt;MembershipRule&gt;&lt;MonitoringClass&gt;$MPElement[Name="GripLogix.McAfee.ePolicyOrchestratorGroup"]$&lt;/MonitoringClass&gt;&lt;RelationshipClass&gt;$MPElement[Name="GripLogix.McAfee.Relationship.McAfeeServiceContainsePolicyOrchestratorGroup"]$&lt;/RelationshipClass&gt;&lt;/MembershipRule&gt;&lt;MembershipRule&gt;&lt;MonitoringClass&gt;$MPElement[Name="GripLogix.McAfee.McAfeeAgentHandlerGroup"]$&lt;/MonitoringClass&gt;&lt;RelationshipClass&gt;$MPElement[Name="GripLogix.McAfee.Relationship.McAfeeServiceContainsMcAfeeAgentHandlerGroup"]$&lt;/RelationshipClass&gt;&lt;/MembershipRule&gt;&lt;MembershipRule&gt;&lt;MonitoringClass&gt;$MPElement[Name="GripLogix.McAfee.McAfeeMoveAgentlessGroup"]$&lt;/MonitoringClass&gt;&lt;RelationshipClass&gt;$MPElement[Name="GripLogix.McAfee.Relationship.McAfeeServiceContainsMcAfeeMoveAgentlessGroup"]$&lt;/RelationshipClass&gt;&lt;/MembershipRule&gt;&lt;/MembershipRules&gt;</DataSourceConfig>
+        <DataSourceType>SC!Microsoft.SystemCenter.GroupPopulator</DataSourceType>
+        <Target>GripLogix.McAfee.McAfeeService</Target>
+        <Enabled>true</Enabled>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <ConfirmDelivery>false</ConfirmDelivery>
+        <Category>Discovery</Category>
+        <DiscoveryClasses />
+        <DiscoveryRelationships>
+          <DiscoveryRelationshipItem>
+            <TypeId>MSIL!Microsoft.SystemCenter.InstanceGroupContainsEntities</TypeId>
+            <Properties />
+          </DiscoveryRelationshipItem>
+        </DiscoveryRelationships>
+      </DiscoveryConfig>
+    </Instance>
+    <Instance ID="Instanceab35c12d968849c28aa683218dee53c7" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.Discovery" Version="1.0.0.0">
+      <DiscoveryConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <Id>Discovery.PopulateePolicyOrchestratorGroup</Id>
+        <DisplayName>Discovery Populate ePolicy Orchestrator Group</DisplayName>
+        <Description>Populates ePolicy Orchestrator Group</Description>
+        <DataSourceId>DS</DataSourceId>
+        <DataSourceConfig>&lt;RuleId&gt;$MPElement$&lt;/RuleId&gt;&lt;GroupInstanceId&gt;$Target/Id$&lt;/GroupInstanceId&gt;&lt;MembershipRules&gt;&lt;MembershipRule&gt;&lt;MonitoringClass&gt;$MPElement[Name="GripLogix.McAfee.ePolicyOrchestrator"]$&lt;/MonitoringClass&gt;&lt;RelationshipClass&gt;$MPElement[Name="GripLogix.McAfee.Relationship.ePolicyOrchestratorGroupContainsePolicyOrchestrator"]$&lt;/RelationshipClass&gt;&lt;/MembershipRule&gt;&lt;/MembershipRules&gt;</DataSourceConfig>
+        <DataSourceType>SC!Microsoft.SystemCenter.GroupPopulator</DataSourceType>
+        <Target>GripLogix.McAfee.ePolicyOrchestratorGroup</Target>
+        <Enabled>true</Enabled>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <ConfirmDelivery>false</ConfirmDelivery>
+        <Category>Discovery</Category>
+        <DiscoveryClasses />
+        <DiscoveryRelationships>
+          <DiscoveryRelationshipItem>
+            <TypeId>MSIL!Microsoft.SystemCenter.InstanceGroupContainsEntities</TypeId>
+            <Properties />
+          </DiscoveryRelationshipItem>
+        </DiscoveryRelationships>
+      </DiscoveryConfig>
+    </Instance>
+    <Instance ID="Instancef334015ca645468490446f3e3ba7b9bc" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.Discovery" Version="1.0.0.0">
+      <DiscoveryConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Id>Discovery.PopulateMcAfeeAgentGroup</Id>
+        <DisplayName>Discovery Populate McAfeeAgent Group</DisplayName>
+        <Description>Populates McAfeeAgent Group</Description>
+        <DataSourceId>DS</DataSourceId>
+        <DataSourceConfig>&lt;RuleId&gt;$MPElement$&lt;/RuleId&gt;&lt;GroupInstanceId&gt;$Target/Id$&lt;/GroupInstanceId&gt;&lt;MembershipRules&gt;&lt;MembershipRule&gt;&lt;MonitoringClass&gt;$MPElement[Name="GripLogix.McAfee.McAfeeAgent"]$&lt;/MonitoringClass&gt;&lt;RelationshipClass&gt;$MPElement[Name="GripLogix.McAfee.Relationship.McAfeeAgentGroupContainsMcAfeeAgent"]$&lt;/RelationshipClass&gt;&lt;/MembershipRule&gt;&lt;/MembershipRules&gt;</DataSourceConfig>
+        <DataSourceType>SC!Microsoft.SystemCenter.GroupPopulator</DataSourceType>
+        <Target>GripLogix.McAfee.McAfeeAgentGroup</Target>
+        <Enabled>true</Enabled>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <ConfirmDelivery>false</ConfirmDelivery>
+        <Category>Discovery</Category>
+        <DiscoveryClasses />
+        <DiscoveryRelationships>
+          <DiscoveryRelationshipItem>
+            <TypeId>MSIL!Microsoft.SystemCenter.InstanceGroupContainsEntities</TypeId>
+            <Properties />
+          </DiscoveryRelationshipItem>
+        </DiscoveryRelationships>
+      </DiscoveryConfig>
+    </Instance>
+  </Instances>
+</TemplateGroup>

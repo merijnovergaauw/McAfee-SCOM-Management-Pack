@@ -1,0 +1,23 @@
+﻿<ManagementPackFragment SchemaVersion="2.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <TypeDefinitions>
+    <EntityTypes>
+      <RelationshipTypes>
+        <RelationshipType ID="GripLogix.McAfee.Relationship.McAfeeAgentHandlerGroupContainsMcAfeeAgentHandler" Base="System!System.Containment" Abstract="false" Accessibility="Public">
+          <Source ID="Source" Type="GripLogix.McAfee.McAfeeAgentHandlerGroup"/>
+          <Target ID="Target" Type="GripLogix.McAfee.McAfeeAgentHandler"/>
+        </RelationshipType>
+      </RelationshipTypes>
+    </EntityTypes>
+  </TypeDefinitions>
+  <LanguagePacks>
+    <LanguagePack ID="ENU" IsDefault="true">
+      <DisplayStrings>
+        <DisplayString ElementID="GripLogix.McAfee.Relationship.McAfeeAgentHandlerGroupContainsMcAfeeAgentHandler">
+          <Name>Agent Handler Group contains AgentHandler Relationship</Name>
+          <Description></Description>
+        </DisplayString>
+      </DisplayStrings>
+    </LanguagePack>
+  </LanguagePacks>
+</ManagementPackFragment>
+

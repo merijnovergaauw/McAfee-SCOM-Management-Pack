@@ -1,0 +1,64 @@
+﻿<ManagementPackFragment SchemaVersion="2.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <TypeDefinitions>
+    <ModuleTypes>
+      <DataSourceModuleType ID="GripLogix.McAfee.DataSource.RegCheckRegistryValue" Accessibility="Internal">
+        <Configuration>
+          <xsd:element minOccurs="1" name="IntervalSeconds" type="xsd:integer" />
+          <xsd:element minOccurs="0" name="SyncTime" type="xsd:string" />
+          <xsd:element minOccurs="1" name="ComputerName" type="xsd:string" />
+          <xsd:element minOccurs="1" name="RegValuePath" type="xsd:string" />
+          <xsd:element minOccurs="1" name="DesiredRegValue" type="xsd:integer" />
+        </Configuration>
+        <OverrideableParameters>
+          <OverrideableParameter ID="IntervalSeconds" Selector="$Config/IntervalSeconds$" ParameterType="int" />
+          <OverrideableParameter ID="SyncTime" Selector="$Config/SyncTime$" ParameterType="string" />
+          <OverrideableParameter ID="RegValuePath" Selector="$Config/RegValuePath$" ParameterType="string" />
+          <OverrideableParameter ID="DesiredRegValue" Selector="$Config/DesiredRegValue$" ParameterType="int" />
+        </OverrideableParameters>
+        <ModuleImplementation>
+          <Composite>
+            <MemberModules>
+              <DataSource ID="Scheduler" TypeID="System!System.SimpleScheduler">
+                <IntervalSeconds>$Config/IntervalSeconds$</IntervalSeconds>
+                <SyncTime>$Config/SyncTime$</SyncTime>
+              </DataSource>
+              <ProbeAction ID="RegProbe" TypeID="Windows!Microsoft.Windows.RegistryProbe">
+                <ComputerName>$Config/ComputerName$</ComputerName>
+                <RegistryAttributeDefinitions>
+                  <RegistryAttributeDefinition>
+                    <AttributeName>RegValue</AttributeName>
+                    <Path>$Config/RegValuePath$</Path>
+                    <PathType>1</PathType>
+                    <AttributeType>1</AttributeType>
+                  </RegistryAttributeDefinition>
+                </RegistryAttributeDefinitions>
+              </ProbeAction>
+              <ConditionDetection ID="CD" TypeID="System!System.ExpressionFilter">
+                <Expression>
+                  <SimpleExpression>
+                    <ValueExpression>
+                      <XPathQuery Type="Integer">Values/RegValue</XPathQuery>
+                    </ValueExpression>
+                    <Operator>Less</Operator>
+                    <ValueExpression>
+                      <Value Type="Integer">$Config/DesiredRegValue$</Value>
+                    </ValueExpression>
+                  </SimpleExpression>
+                </Expression>
+              </ConditionDetection>
+            </MemberModules>
+            <Composition>
+              <Node ID ="CD">
+                <Node ID ="RegProbe">
+                  <Node ID ="Scheduler" />
+                </Node>
+              </Node>
+            </Composition>
+          </Composite>          
+        </ModuleImplementation>
+        <OutputType>Windows!Microsoft.Windows.RegistryData</OutputType>
+      </DataSourceModuleType>
+    </ModuleTypes>
+  </TypeDefinitions> 
+  
+</ManagementPackFragment>

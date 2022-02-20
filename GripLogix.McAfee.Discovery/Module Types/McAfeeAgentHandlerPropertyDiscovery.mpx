@@ -1,0 +1,121 @@
+﻿<ManagementPackFragment SchemaVersion="2.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <TypeDefinitions>
+    <ModuleTypes>
+      <!-- DataSource.McAfeeAgentHandlerPropertyDiscovery -->
+      <DataSourceModuleType
+        ID="GripLogix.McAfee.DataSource.McAfeeAgentHandlerPropertyDiscovery"
+        Accessibility="Public">
+        <Configuration>
+          <xsd:element name="InstallPath" type="xsd:string" />
+          <xsd:element name="SearchFileInstallPath" type="xsd:string" />
+          <xsd:element name="SearchPattern" type="xsd:string" />
+          <xsd:element name="StripPattern" type="xsd:string" />
+          <xsd:element name="TimeoutSeconds" type="xsd:integer" />
+          <xsd:element name="IntervalSeconds" type="xsd:integer"/>
+          <xsd:element name="ComputerName" type="xsd:string" />
+        </Configuration>
+        <OverrideableParameters>
+          <OverrideableParameter ID="InstallPath" Selector="$Config/InstallPath$" ParameterType="string" />
+          <OverrideableParameter ID="SearchFileInstallPath" Selector="$Config/SearchFileInstallPath$" ParameterType="string" />
+          <OverrideableParameter ID="SearchPattern" Selector="$Config/SearchPattern$" ParameterType="string" />
+          <OverrideableParameter ID="StripPattern" Selector="$Config/StripPattern$" ParameterType="string" />
+          <OverrideableParameter ID="TimeoutSeconds" Selector="$Config/TimeoutSeconds$" ParameterType="int" />
+          <OverrideableParameter ID="IntervalSeconds" Selector="$Config/IntervalSeconds$" ParameterType="int" />
+        </OverrideableParameters>
+        <ModuleImplementation>
+          <Composite>
+            <MemberModules>
+              <DataSource ID="Scheduler" TypeID="System!System.Scheduler">
+                <Scheduler>
+                  <SimpleReccuringSchedule>
+                    <Interval Unit="Seconds">$Config/IntervalSeconds$</Interval>
+                    <SyncTime/>
+                  </SimpleReccuringSchedule>
+                  <ExcludeDates/>
+                </Scheduler>
+              </DataSource>
+              <ProbeAction ID="PowerShellProbe" TypeID="GripLogix.McAfee.Probe.McAfeeAgentHandlerPropertyDiscovery">
+                <InstallPath>$Config/InstallPath$</InstallPath>
+                <SearchFileInstallPath>$Config/SearchFileInstallPath$</SearchFileInstallPath>
+                <SearchPattern>$Config/SearchPattern$</SearchPattern>
+                <StripPattern>$Config/StripPattern$</StripPattern>
+                <TimeoutSeconds>$Config/TimeoutSeconds$</TimeoutSeconds>
+                <ComputerName>$Config/ComputerName$</ComputerName>
+              </ProbeAction>
+            </MemberModules>
+            <Composition>
+              <Node ID="PowerShellProbe">
+                <Node ID="Scheduler" />
+              </Node>
+            </Composition>
+          </Composite>
+        </ModuleImplementation>
+        <OutputType>System!System.Discovery.Data</OutputType>
+      </DataSourceModuleType>
+
+      <!-- Probe.McAfeeAgentHandlerPropertyDiscovery-->
+      <ProbeActionModuleType
+        ID="GripLogix.McAfee.Probe.McAfeeAgentHandlerPropertyDiscovery"
+        Accessibility="Public">
+        <Configuration>
+          <xsd:element name="InstallPath" type="xsd:string" />
+          <xsd:element name="SearchFileInstallPath" type="xsd:string" />
+          <xsd:element name="SearchPattern" type="xsd:string" />
+          <xsd:element name="StripPattern" type="xsd:string" />
+          <xsd:element name="TimeoutSeconds" type="xsd:integer" />
+          <xsd:element name="ComputerName" type="xsd:string" />
+        </Configuration>
+        <OverrideableParameters>
+        </OverrideableParameters>
+        <ModuleImplementation>
+          <Composite>
+            <MemberModules>
+              <ProbeAction
+                TypeID="Windows!Microsoft.Windows.PowerShellDiscoveryProbe"
+                ID="PowerShellProbe">
+                <ScriptName>McAfeeAgentHandlerPropertyDiscovery.ps1</ScriptName>
+                <ScriptBody>$IncludeFileContent/Scripts/McAfeeAgentHandlerPropertyDiscovery.ps1$</ScriptBody>
+                <Parameters>
+                  <Parameter>
+                    <Name>SourceID</Name>
+                    <Value>$MPElement$</Value>
+                  </Parameter>
+                  <Parameter>
+                    <Name>ManagedEntityID</Name>
+                    <Value>$Target/Id$</Value>
+                  </Parameter>
+                  <Parameter>
+                    <Name>InstallPath</Name>
+                    <Value>$Config/InstallPath$</Value>
+                  </Parameter>
+                  <Parameter>
+                    <Name>SearchFileInstallPath</Name>
+                    <Value>$Config/SearchFileInstallPath$</Value>
+                  </Parameter>
+                  <Parameter>
+                    <Name>SearchPattern</Name>
+                    <Value>$Config/SearchPattern$</Value>
+                  </Parameter>
+                  <Parameter>
+                    <Name>StripPattern</Name>
+                    <Value>$Config/StripPattern$</Value>
+                  </Parameter>
+                  <Parameter>
+                    <Name>ComputerName</Name>
+                    <Value>$Config/ComputerName$</Value>
+                  </Parameter>
+                </Parameters>
+                <TimeoutSeconds>$Config/TimeoutSeconds$</TimeoutSeconds>
+              </ProbeAction>
+            </MemberModules>
+            <Composition>
+              <Node ID="PowerShellProbe" />
+            </Composition>
+          </Composite>
+        </ModuleImplementation>
+        <OutputType>System!System.Discovery.Data</OutputType>
+        <InputType>System!System.BaseData</InputType>
+      </ProbeActionModuleType>
+    </ModuleTypes>
+  </TypeDefinitions>
+</ManagementPackFragment>

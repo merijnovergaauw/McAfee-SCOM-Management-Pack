@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <ProjectGuid>{469af6dc-5c68-4829-a46a-3f7a89ca4721}</ProjectGuid>
+    <RootNamespace>GripLogix.McAfee.Discovery</RootNamespace>
+    <Name>McAfee.Discovery</Name>
+    <ManagementPackName>GripLogix.McAfee.Discovery</ManagementPackName>
+    <Version>1.0.0.10</Version>
+    <MpFrameworkVersion>v7.0.2</MpFrameworkVersion>
+    <MpFrameworkProfile>OM</MpFrameworkProfile>
+    <ProductVersion>1.1.0.0</ProductVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <GenerateSealed>True</GenerateSealed>
+    <Company>GripLogix</Company>
+    <Copyright>Community</Copyright>
+    <DelaySigning>False</DelaySigning>
+    <AssemblyOriginatorKeyFile>..\GripLogix.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>false</DebugSymbols>
+    <OutputPath>bin\Release\</OutputPath>
+    <DelaySigning>false</DelaySigning>
+    <Company>MyCompany</Company>
+    <Copyright>Copyright (c) MyCompany. All rights reserved.</Copyright>
+    <DelaySign>false</DelaySign>
+    <AssemblyOriginatorKeyFile />
+  </PropertyGroup>
+  <ItemGroup>
+    <ManagementPackReference Include="Microsoft.SystemCenter.InstanceGroup.Library">
+      <HintPath>C:\Program Files (x86)\System Center Visual Studio Authoring Extensions\References\OM2012R2\Microsoft.SystemCenter.InstanceGroup.Library.mp</HintPath>
+      <Alias>MSIL</Alias>
+      <MinVersion>7.5.8501.0</MinVersion>
+      <PackageToBundle>False</PackageToBundle>
+    </ManagementPackReference>
+    <ManagementPackReference Include="Microsoft.SystemCenter.Library">
+      <Alias>SC</Alias>
+      <PackageToBundle>False</PackageToBundle>
+    </ManagementPackReference>
+    <ManagementPackReference Include="Microsoft.Windows.Library">
+      <Alias>Windows</Alias>
+      <PackageToBundle>False</PackageToBundle>
+    </ManagementPackReference>
+    <ManagementPackReference Include="System.Health.Library">
+      <Alias>Health</Alias>
+      <PackageToBundle>false</PackageToBundle>
+    </ManagementPackReference>
+    <ManagementPackReference Include="System.Library">
+      <Alias>System</Alias>
+      <PackageToBundle>false</PackageToBundle>
+    </ManagementPackReference>
+    <ManagementPackReference Include="Microsoft.SystemCenter.Visualization.Library">
+      <Alias>Visualization</Alias>
+      <PackageToBundle>false</PackageToBundle>
+    </ManagementPackReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Classes" />
+    <Folder Include="Discoveries" />
+    <Folder Include="Module Types" />
+    <Folder Include="Scripts" />
+    <Folder Include="Relationships" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\ePolicyURLOrchestrator.mpx">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\WindowsServiceMcAfeeAgent.mpx">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\WindowsServiceMcAfeeAgentHandler.mpx">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\WindowsServiceMcAfeeEndPointSecurity.mpx">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\WindowsServiceMcAfeeEpolicyOrchestrator.mpx">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\McAfeeAgentHandler.mpx">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\McAfeeAgentHandlerGroup.mpx">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\ePolicyOrchestrator.mpx">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\McAfeeEndPointSecurity.mpx">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\McAfeeMoveAgentless.mpx">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\McAfeeMoveAgentlessGroup.mpx">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\McAfeeService.mpx">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\McAfeeAgent.mpx">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\McAfeeAgentGroup.mpx">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\McAfeeMcShield.mpx">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\ePolicyOrchestratorGroup.mpx">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\McAfeeThreadPrevention.mpx">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\WindowsServiceMcAfeeMcShield.mpx">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\WindowsServiceMcAfeeMoveAgentless.mpx">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Discoveries\Discovery.ClassInstances.mptg.mpx">
+      <SubType>Code</SubType>
+      <DependentUpon>Discoveries\Discovery.ClassInstances.mptg</DependentUpon>
+    </Compile>
+    <Compile Include="Discoveries\Discovery.PopulateGroups.mptg.mpx">
+      <SubType>Code</SubType>
+      <DependentUpon>Discoveries\Discovery.PopulateGroups.mptg</DependentUpon>
+    </Compile>
+    <Compile Include="Discoveries\Discovery.Relationships.mptg.mpx">
+      <SubType>Code</SubType>
+      <DependentUpon>Discoveries\Discovery.Relationships.mptg</DependentUpon>
+    </Compile>
+    <Compile Include="ManagementPack.mpx">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Module Types\ePolicyOrchPropertyDiscovery.mpx">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Module Types\McAfeeAgentContainsChildItems.mpx">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Module Types\McAfeeAgentHandlerPropertyDiscovery.mpx">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Module Types\McAfeePSRegistryBasedDiscovery.mpx">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Relationships\Relationship.ePolicyOrchestratorGroup.Contains.ePolicyOrchestrator.mpx">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Relationships\Relationship.ePolicyOrchestrator.Hosts.URL.ePolicyOrchestrator.mpx">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Relationships\Relationship.McAfeeAgent.Contains.McAfeeEndPointSecurity.mpx">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Relationships\Relationship.McAfeeAgent.Contains.McAfeeMcShield.mpx">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Relationships\Relationship.McAfeeAgent.Hosts.McAfeeWindowsService.mpx">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Relationships\Relationship.McAfeeAgentHandlerGroup.Contains.McAfeeAgentHandler.mpx">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Relationships\Relationship.McAfeeAgentGroup.Contains.McAfeeAgent.mpx">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Relationships\Relationship.McAfeeAgentHandler.Hosts.McAfeeWindowsService.mpx">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Relationships\Relationship.McAfeeEndPointSecurity.Hosts.McAfeeWindowsService.mpx">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Relationships\Relationship.McAfeeEndPointSecurity.Hosts.ThreadPrevention.mpx">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Relationships\Relationship.McAfeeEpolicyOrchestrator.Hosts.McAfeeWindowsService.mpx">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Relationships\Relationship.McAfeeMcShield.Hosts.McAfeeWindowsService.mpx">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Relationships\Relationship.McAfeeMoveAgentless.Hosts.McAfeeWindowsService.mpx">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Relationships\Relationship.McAfeeMoveAgentlessGroup.Contains.McAfeeMoveAgentless.mpx">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Relationships\Relationship.McAfeeService.Contains.ePolicyOrchestratorGroup.mpx">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Relationships\Relationship.McAfeeService.Contains.McAfeeAgentGroup.mpx">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Relationships\Relationship.McAfeeService.Contains.McAfeeAgentHandlerGroup.mpx">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Relationships\Relationship.McAfeeServiceContainsMcAfeeMoveAgentlessGroup.mpx">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Discoveries\Discovery.ClassInstances.mptg">
+      <SubType>Content</SubType>
+      <Generator>FragmentGenerator</Generator>
+    </Content>
+    <Content Include="Discoveries\Discovery.PopulateGroups.mptg">
+      <SubType>Content</SubType>
+      <Generator>FragmentGenerator</Generator>
+    </Content>
+    <Content Include="Discoveries\Discovery.Relationships.mptg">
+      <SubType>Content</SubType>
+      <Generator>FragmentGenerator</Generator>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Scripts\McAfeeEpolicyOrchestratorDiscovery.ps1" />
+    <EmbeddedResource Include="Scripts\McAfeeAgentContainsChildItemsDiscovery.ps1" />
+    <EmbeddedResource Include="Scripts\McAfeeAgentHandlerPropertyDiscovery.ps1" />
+    <EmbeddedResource Include="Scripts\McAfeePSRegistryBasedDiscovery.ps1" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VSAC\Microsoft.SystemCenter.OperationsManager.targets" />
+</Project>

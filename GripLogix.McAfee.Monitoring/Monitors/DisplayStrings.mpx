@@ -1,0 +1,43 @@
+﻿<ManagementPackFragment SchemaVersion="2.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Presentation>
+    <StringResources>
+      <StringResource ID="GripLogix.McAfee.Monitoring.Rule.PatchLevel.EndPointSecurity.AlertMessage" />
+      <StringResource ID="GripLogix.McAfee.Monitoring.Rule.PatchLevel.ThreadPrevention.AlertMessage" />
+      <StringResource ID="GripLogix.McAfee.Monitoring.Rule.PatchLevel.McShield.AlertMessage" />
+    </StringResources>
+  </Presentation>
+  <LanguagePacks>
+    <LanguagePack ID="ENU" IsDefault="true">
+      <DisplayStrings>
+        <DisplayString ElementID="GripLogix.McAfee.Monitoring.Rule.PatchLevel.EndPointSecurity.AlertMessage">
+          <Name>EndPointSecurity patch level is not up to date.  Current version is {0}. </Name>
+          <Description>
+            Patch version is not up to date.
+            Current version: {0}
+            Check the rule's config and overrides for this rule to get threshold info.
+            {1}
+          </Description>
+        </DisplayString>
+        <DisplayString ElementID="GripLogix.McAfee.Monitoring.Rule.PatchLevel.ThreadPrevention.AlertMessage">
+          <Name>ThreadPrevention patch level is not up to date.  Current version is {0}. </Name>
+          <Description>
+            Patch version is not up to date.
+            Current version: {0}
+            Check the rule's config and overrides for this rule to get threshold info.
+            {1}
+          </Description>
+        </DisplayString>
+        <DisplayString ElementID="GripLogix.McAfee.Monitoring.Rule.PatchLevel.McShield.AlertMessage">
+          <Name>McShield patch level is not up to date.  Current version is {0}. </Name>
+          <Description>
+            Patch version is not up to date.
+            Current version: {0}
+            Check the rule's config and overrides for this rule to get threshold info.
+            {1}
+          </Description>
+        </DisplayString>
+      </DisplayStrings>
+    </LanguagePack>
+  </LanguagePacks>   
+    
+</ManagementPackFragment>

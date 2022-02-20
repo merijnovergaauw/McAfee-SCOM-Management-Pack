@@ -1,0 +1,208 @@
+﻿<ManagementPackFragment SchemaVersion="2.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <TypeDefinitions>
+    <ModuleTypes>
+      <!-- DataSource.WEBPageCheck.PropertyBag -->
+      <DataSourceModuleType ID ="GripLogix.WebMon.WEBPage.DataSource.WEBPageCheck.PropertyBag" Accessibility ="Internal">
+        <Configuration>
+          <xsd:element name="IntervalSeconds" type="xsd:integer" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+          <xsd:element name="SyncTime" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+          <xsd:element name="Name" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+          <xsd:element name="Url" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+          <xsd:element name="ContentChecked" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+          <xsd:element name="ComputerName" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+          <xsd:element name="TCPPort" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>          
+          <xsd:element name="Debug" type="xsd:boolean" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+        </Configuration>
+        <OverrideableParameters>
+        </OverrideableParameters>
+        <ModuleImplementation>
+          <Composite>
+            <MemberModules>
+              <DataSource ID="Schedule" TypeID ="System!System.SimpleScheduler">
+                <IntervalSeconds>$Config/IntervalSeconds$</IntervalSeconds>
+                <SyncTime>$Config/SyncTime$</SyncTime>
+              </DataSource>
+              <ProbeAction ID="Script" TypeID ="GripLogix.WebMon.WEBPage.Probe.WEBPageCheck">
+                <Name>$Config/Name$</Name>
+                <Url>$Config/Url$</Url>
+                <ContentChecked>$Config/ContentChecked$</ContentChecked>
+                <ComputerName>$Config/ComputerName$</ComputerName>
+                <TCPPort>$Config/TCPPort$</TCPPort>                
+                <Debug>$Config/Debug$</Debug>
+              </ProbeAction>
+            </MemberModules>
+            <Composition>
+              <Node ID ="Script">
+                <Node ID ="Schedule" />
+              </Node>
+            </Composition>
+          </Composite>
+        </ModuleImplementation>
+        <OutputType>System!System.PropertyBagData</OutputType>
+      </DataSourceModuleType>
+      <!-- Probe.WEBPageCheck -->
+      <ProbeActionModuleType ID="GripLogix.WebMon.WEBPage.Probe.WEBPageCheck" Accessibility="Internal">
+        <Configuration>
+          <xsd:element name="Name" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+          <xsd:element name="Url" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+          <xsd:element name="ContentChecked" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+          <xsd:element name="ComputerName" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+          <xsd:element name="TCPPort" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+          <xsd:element name="Debug" type="xsd:boolean" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+        </Configuration>
+        <ModuleImplementation>
+          <Composite>
+            <MemberModules>
+              <ProbeAction ID="Script" TypeID="Windows!Microsoft.Windows.PowerShellPropertyBagTriggerOnlyProbe">
+                <ScriptName>McAfeeePolicyUrlCheck.ps1</ScriptName>
+                <ScriptBody>$IncludeFileContent/Scripts/McAfeeePolicyUrlCheck.ps1$</ScriptBody>
+                <Parameters>
+                  <Parameter>
+                    <Name>Name</Name>
+                    <Value>$Config/Name$</Value>
+                  </Parameter>
+                  <Parameter>
+                    <Name>Url</Name>
+                    <Value>$Config/Url$</Value>
+                  </Parameter>
+                  <Parameter>
+                    <Name>ContentChecked</Name>
+                    <Value>$Config/ContentChecked$</Value>
+                  </Parameter>
+                  <Parameter>
+                    <Name>ComputerName</Name>
+                    <Value>$Config/ComputerName$</Value>
+                  </Parameter>
+                  <Parameter>
+                    <Name>TCPPort</Name>
+                    <Value>$Config/TCPPort$</Value>
+                  </Parameter>
+                  <Parameter>
+                    <Name>Debug</Name>
+                    <Value>$Config/Debug$</Value>
+                  </Parameter>
+                </Parameters>
+                <TimeoutSeconds>300</TimeoutSeconds>
+              </ProbeAction>
+            </MemberModules>
+            <Composition>
+              <Node ID ="Script"/>
+            </Composition>
+          </Composite>
+        </ModuleImplementation>
+        <OutputType>System!System.PropertyBagData</OutputType>
+        <TriggerOnly>true</TriggerOnly>
+      </ProbeActionModuleType>
+    </ModuleTypes>
+    <MonitorTypes>
+      <!-- MonitorType.WEBPageCheck.Status -->
+      <UnitMonitorType ID="GripLogix.WebMon.WEBPage.MonitorType.WEBPageCheck.Status" Accessibility="Internal">
+        <MonitorTypeStates>
+          <MonitorTypeState ID="FAILED" NoDetection="false"/>
+          <MonitorTypeState ID="SUCCESS" NoDetection="false"/>
+        </MonitorTypeStates>
+        <Configuration>
+          <xsd:element name="IntervalSeconds" type="xsd:integer" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+          <xsd:element name="SyncTime" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+          <xsd:element name="Name" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+          <xsd:element name="Url" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+          <xsd:element name="ContentChecked" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+          <xsd:element name="ComputerName" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+          <xsd:element name="TCPPort" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+          <xsd:element name="Debug" type="xsd:boolean" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+        </Configuration>
+        <OverrideableParameters>
+          <OverrideableParameter ID="IntervalSeconds" Selector="$Config/IntervalSeconds$" ParameterType="int"/>
+          <OverrideableParameter ID="SyncTime" Selector="$Config/SyncTime$" ParameterType="string"/>
+          <OverrideableParameter ID="Debug" Selector="$Config/Debug$" ParameterType="bool"/>
+          <OverrideableParameter ID="Url" Selector="$Config/Url$" ParameterType="string"/>
+          <OverrideableParameter ID="ContentChecked" Selector="$Config/ContentChecked$" ParameterType="string"/>
+          <OverrideableParameter ID="ComputerName" Selector="$Config/ComputerName$" ParameterType="string"/>
+          <OverrideableParameter ID="TCPPort" Selector="$Config/TCPPort$" ParameterType="string"/>
+        </OverrideableParameters>
+        <MonitorImplementation>
+          <MemberModules>
+            <DataSource ID="DS" TypeID="GripLogix.WebMon.WEBPage.DataSource.WEBPageCheck.PropertyBag">
+              <IntervalSeconds>$Config/IntervalSeconds$</IntervalSeconds>
+              <SyncTime>$Config/SyncTime$</SyncTime>
+              <Name>$Config/Name$</Name>
+              <Url>$Config/Url$</Url>
+              <ContentChecked>$Config/ContentChecked$</ContentChecked>
+              <ComputerName>$Config/ComputerName$</ComputerName>
+              <TCPPort>$Config/TCPPort$</TCPPort>              
+              <Debug>$Config/Debug$</Debug>
+            </DataSource>
+            <ConditionDetection ID="FilterSUCCESSStatus" TypeID="System!System.ExpressionFilter">
+              <Expression>
+                <Or>
+                  <Expression>
+                    <SimpleExpression>
+                      <ValueExpression>
+                        <XPathQuery Type="String">Property[@Name='ContentMatch']</XPathQuery>
+                      </ValueExpression>
+                      <Operator>Equal</Operator>
+                      <ValueExpression>
+                        <Value Type="String">SUCCESS</Value>
+                      </ValueExpression>
+                    </SimpleExpression>
+                  </Expression>             
+                  <Expression>
+                    <SimpleExpression>
+                      <ValueExpression>
+                        <XPathQuery Type="String">Property[@Name='TCPportCheck']</XPathQuery>
+                      </ValueExpression>
+                      <Operator>Equal</Operator>
+                      <ValueExpression>
+                        <Value Type="String">True</Value>
+                      </ValueExpression>
+                    </SimpleExpression>
+                  </Expression>
+                </Or>
+              </Expression>
+            </ConditionDetection>
+            <ConditionDetection ID="FilterFAILEDStatus" TypeID="System!System.ExpressionFilter">
+              <Expression>
+                <And>  
+                  <Expression>
+                    <SimpleExpression>
+                      <ValueExpression>
+                        <XPathQuery Type="String">Property[@Name='ContentMatch']</XPathQuery>
+                      </ValueExpression>
+                      <Operator>NotEqual</Operator>
+                      <ValueExpression>
+                        <Value Type="String">SUCCESS</Value>
+                      </ValueExpression>
+                    </SimpleExpression>
+                  </Expression>
+                  <Expression>
+                    <SimpleExpression>
+                      <ValueExpression>
+                        <XPathQuery Type="String">Property[@Name='TCPportCheck']</XPathQuery>
+                      </ValueExpression>
+                      <Operator>NotEqual</Operator>
+                      <ValueExpression>
+                        <Value Type="String">True</Value>
+                      </ValueExpression>
+                    </SimpleExpression>
+                  </Expression>
+                </And>
+              </Expression>      
+            </ConditionDetection>
+          </MemberModules>
+          <RegularDetections>
+            <RegularDetection MonitorTypeStateID="FAILED">
+              <Node ID="FilterFAILEDStatus">
+                <Node ID="DS"/>
+              </Node>
+            </RegularDetection>
+            <RegularDetection MonitorTypeStateID="SUCCESS">
+              <Node ID="FilterSUCCESSStatus">
+                <Node ID="DS"/>
+              </Node>
+            </RegularDetection>
+          </RegularDetections>
+        </MonitorImplementation>
+      </UnitMonitorType>
+    </MonitorTypes>
+  </TypeDefinitions>
+</ManagementPackFragment>

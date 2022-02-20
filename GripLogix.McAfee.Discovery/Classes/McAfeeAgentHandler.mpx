@@ -1,0 +1,50 @@
+﻿<ManagementPackFragment SchemaVersion="2.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <TypeDefinitions>
+    <EntityTypes>
+      <ClassTypes>
+        <ClassType ID="GripLogix.McAfee.McAfeeAgentHandler" Base="Windows!Microsoft.Windows.ComputerRole" Accessibility="Public" Abstract="false" Hosted="true" Singleton="false">
+          <Property ID="Name" Key="false" Type="string" />          
+          <Property ID="InstalledPath" Key="false" Type="string" />
+          <Property ID="EPOServer" Key="false" Type="string" />
+          <Property ID="Version" Key="false" Type="string" />
+          <Property ID="Database" Key="false" Type="string" />
+          <Property ID="DatabaseServer" Key="false" Type="string" />
+        </ClassType>
+      </ClassTypes>
+    </EntityTypes>
+  </TypeDefinitions>
+  <LanguagePacks>
+    <LanguagePack ID="ENU" IsDefault="true">
+      <DisplayStrings>
+        <DisplayString ElementID="GripLogix.McAfee.McAfeeAgentHandler">
+          <Name>McAfee Agent Handler</Name>
+          <Description></Description>
+        </DisplayString>
+        <DisplayString ElementID="GripLogix.McAfee.McAfeeAgentHandler" SubElementID="Name">
+          <Name>Name</Name>
+          <Description></Description>
+        </DisplayString>        
+        <DisplayString ElementID="GripLogix.McAfee.McAfeeAgentHandler" SubElementID="InstalledPath">
+          <Name>Installed Path</Name>
+          <Description></Description>
+        </DisplayString>
+        <DisplayString ElementID="GripLogix.McAfee.McAfeeAgentHandler" SubElementID="EPOServer">
+          <Name>EPO Server</Name>
+          <Description></Description>
+        </DisplayString>
+        <DisplayString ElementID="GripLogix.McAfee.McAfeeAgentHandler" SubElementID="Version">
+          <Name>Version</Name>
+          <Description></Description>
+        </DisplayString>
+        <DisplayString ElementID="GripLogix.McAfee.McAfeeAgentHandler" SubElementID="Database">
+          <Name>Database</Name>
+          <Description></Description>
+        </DisplayString>
+        <DisplayString ElementID="GripLogix.McAfee.McAfeeAgentHandler" SubElementID="DatabaseServer">
+          <Name>DatabaseServer</Name>
+          <Description></Description>
+        </DisplayString>
+      </DisplayStrings>
+    </LanguagePack>
+  </LanguagePacks>
+</ManagementPackFragment>

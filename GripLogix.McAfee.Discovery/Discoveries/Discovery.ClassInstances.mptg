@@ -1,0 +1,578 @@
+<TemplateGroup>
+  <Instances>
+    <Instance ID="Instance3d5876a2e98b4569931758d52012d10f" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.Discovery" Version="1.0.0.0">
+      <DiscoveryConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Id>Discovery.ePolicyOrchestrator.DatabaseServer</Id>
+        <DisplayName>Discovery ePolicyOrchestrator Database Server</DisplayName>
+        <Description>Discovers ePolicyOrchestrator Database Server.</Description>
+        <DataSourceId>DS</DataSourceId>
+        <DataSourceConfig>&lt;InstallPath&gt;$Target/Property[Type="GripLogix.McAfee.ePolicyOrchestrator"]/InstalledPath$&lt;/InstallPath&gt;&lt;SearchFileInstallPath&gt;:\Program Files (x86)\McAfee\ePolicy Orchestrator\Server\conf\orion\db.properties&lt;/SearchFileInstallPath&gt;&lt;SearchPattern&gt;^db.server.name=&lt;/SearchPattern&gt;&lt;StripPattern&gt;.*db.server.name=&lt;/StripPattern&gt;&lt;TimeoutSeconds&gt;300&lt;/TimeoutSeconds&gt;&lt;IntervalSeconds&gt;14400&lt;/IntervalSeconds&gt;&lt;ComputerName&gt;$Target/Host/Property[Type="Windows!Microsoft.Windows.Computer"]/PrincipalName$&lt;/ComputerName&gt;</DataSourceConfig>
+        <DataSourceType>GripLogix.McAfee.DataSource.ePolicyOrchPropertyDiscovery</DataSourceType>
+        <Target>GripLogix.McAfee.ePolicyOrchestrator</Target>
+        <Enabled>true</Enabled>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <ConfirmDelivery>false</ConfirmDelivery>
+        <Category>Discovery</Category>
+        <DiscoveryClasses>
+          <DiscoveryClassItem>
+            <TypeId>GripLogix.McAfee.ePolicyOrchestrator</TypeId>
+            <Properties>
+              <DiscoveredTypeProperty>
+                <TypeId>GripLogix.McAfee.ePolicyOrchestrator</TypeId>
+                <Property>DatabaseServer</Property>
+              </DiscoveredTypeProperty>
+            </Properties>
+          </DiscoveryClassItem>
+        </DiscoveryClasses>
+        <DiscoveryRelationships />
+      </DiscoveryConfig>
+    </Instance>
+    <Instance ID="Instance9f271864f17a4d34b11866021856f872" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.Discovery" Version="1.0.0.0">
+      <DiscoveryConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Id>Discovery.McAfeeMoveAgentless</Id>
+        <DisplayName>Discovery McAfeeMoveAgentless</DisplayName>
+        <Description>Discovers McAfeeMoveAgentless nodes.</Description>
+        <DataSourceId>DS</DataSourceId>
+        <DataSourceConfig>&lt;ComputerName&gt;$Target/Property[Type="Windows!Microsoft.Windows.Computer"]/NetworkName$&lt;/ComputerName&gt;&lt;ServiceName&gt;Vsepflt&lt;/ServiceName&gt;&lt;Frequency&gt;14400&lt;/Frequency&gt;&lt;ClassId&gt;$MPElement[Name="GripLogix.McAfee.McAfeeMoveAgentless"]$&lt;/ClassId&gt;&lt;InstanceSettings&gt;&lt;Settings&gt;&lt;Setting&gt;&lt;Name&gt;$MPElement[Name="Windows!Microsoft.Windows.Computer"]/PrincipalName$&lt;/Name&gt;&lt;Value&gt;$Target/Property[Type="Windows!Microsoft.Windows.Computer"]/PrincipalName$&lt;/Value&gt;&lt;/Setting&gt;&lt;Setting&gt;&lt;Name&gt;$MPElement[Name="GripLogix.McAfee.McAfeeMoveAgentless"]/ServiceName$&lt;/Name&gt;&lt;Value&gt;$Data/Property[@Name='Name']$&lt;/Value&gt;&lt;/Setting&gt;&lt;Setting&gt;&lt;Name&gt;$MPElement[Name="GripLogix.McAfee.McAfeeMoveAgentless"]/ServiceProcessName$&lt;/Name&gt;&lt;Value&gt;$Data/Property[@Name='BinaryPathName']$&lt;/Value&gt;&lt;/Setting&gt;&lt;Setting&gt;&lt;Name&gt;$MPElement[Name="GripLogix.McAfee.McAfeeMoveAgentless"]/Name$&lt;/Name&gt;&lt;Value&gt;McAfee Move Agentless&lt;/Value&gt;&lt;/Setting&gt;&lt;Setting&gt;&lt;Name&gt;$MPElement[Name="System!System.Entity"]/DisplayName$&lt;/Name&gt;&lt;Value&gt;$Target/Property[Type="Windows!Microsoft.Windows.Computer"]/PrincipalName$&lt;/Value&gt;&lt;/Setting&gt;&lt;/Settings&gt;&lt;/InstanceSettings&gt;</DataSourceConfig>
+        <DataSourceType>Windows!Microsoft.Windows.Win32ServiceInformationProviderWithClassSnapshotDataMapper</DataSourceType>
+        <Target>Windows!Microsoft.Windows.Computer</Target>
+        <Enabled>true</Enabled>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <ConfirmDelivery>false</ConfirmDelivery>
+        <Category>Discovery</Category>
+        <DiscoveryClasses>
+          <DiscoveryClassItem>
+            <TypeId>GripLogix.McAfee.McAfeeMoveAgentless</TypeId>
+            <Properties />
+          </DiscoveryClassItem>
+        </DiscoveryClasses>
+        <DiscoveryRelationships />
+      </DiscoveryConfig>
+    </Instance>
+    <Instance ID="Instancec16bd52ab8444cec97aedabdf9347b39" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.Discovery" Version="1.0.0.0">
+      <DiscoveryConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Id>Discovery.McAfeeAgentHandler.EPOServer</Id>
+        <DisplayName>Discovery McAfeeAgentHandler EPO Server</DisplayName>
+        <Description>Discovers McAfeeAgentHandler EPO Server.</Description>
+        <DataSourceId>DS</DataSourceId>
+        <DataSourceConfig>&lt;ComputerName&gt;$Target/Host/Property[Type="Windows!Microsoft.Windows.Computer"]/PrincipalName$&lt;/ComputerName&gt;&lt;RegistryAttributeDefinitions&gt;&lt;RegistryAttributeDefinition&gt;&lt;AttributeName&gt;AppExists&lt;/AttributeName&gt;&lt;Path&gt;SOFTWARE\Wow6432Node\Network Associates\ePolicy Orchestrator\EPO_SERVER&lt;/Path&gt;&lt;PathType&gt;1&lt;/PathType&gt;&lt;AttributeType&gt;0&lt;/AttributeType&gt;&lt;/RegistryAttributeDefinition&gt;&lt;RegistryAttributeDefinition&gt;&lt;AttributeName&gt;EPOServer&lt;/AttributeName&gt;&lt;Path&gt;SOFTWARE\Wow6432Node\Network Associates\ePolicy Orchestrator\EPO_SERVER&lt;/Path&gt;&lt;PathType&gt;1&lt;/PathType&gt;&lt;AttributeType&gt;1&lt;/AttributeType&gt;&lt;/RegistryAttributeDefinition&gt;&lt;/RegistryAttributeDefinitions&gt;&lt;Frequency&gt;14400&lt;/Frequency&gt;&lt;ClassId&gt;$MPElement[Name="GripLogix.McAfee.McAfeeAgentHandler"]$&lt;/ClassId&gt;&lt;InstanceSettings&gt;&lt;Settings&gt;&lt;Setting&gt;&lt;Name&gt;$MPElement[Name="Windows!Microsoft.Windows.Computer"]/PrincipalName$&lt;/Name&gt;&lt;Value&gt;$Target/Host/Property[Type="Windows!Microsoft.Windows.Computer"]/PrincipalName$&lt;/Value&gt;&lt;/Setting&gt;&lt;Setting&gt;&lt;Name&gt;$MPElement[Name="System!System.Entity"]/DisplayName$&lt;/Name&gt;&lt;Value&gt;$Target/Host/Property[Type="Windows!Microsoft.Windows.Computer"]/PrincipalName$&lt;/Value&gt;&lt;/Setting&gt;&lt;Setting&gt;&lt;Name&gt;$MPElement[Name="GripLogix.McAfee.McAfeeAgentHandler"]/EPOServer$&lt;/Name&gt;&lt;Value&gt;$Data/Values/EPOServer$&lt;/Value&gt;&lt;/Setting&gt;&lt;/Settings&gt;&lt;/InstanceSettings&gt;&lt;Expression&gt;&lt;SimpleExpression&gt;&lt;ValueExpression&gt;&lt;XPathQuery Type="Boolean"&gt;Values/AppExists&lt;/XPathQuery&gt;&lt;/ValueExpression&gt;&lt;Operator&gt;Equal&lt;/Operator&gt;&lt;ValueExpression&gt;&lt;Value Type="Boolean"&gt;true&lt;/Value&gt;&lt;/ValueExpression&gt;&lt;/SimpleExpression&gt;&lt;/Expression&gt;</DataSourceConfig>
+        <DataSourceType>Windows!Microsoft.Windows.FilteredRegistryDiscoveryProvider</DataSourceType>
+        <Target>GripLogix.McAfee.McAfeeAgentHandler</Target>
+        <Enabled>true</Enabled>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <ConfirmDelivery>false</ConfirmDelivery>
+        <Category>Discovery</Category>
+        <DiscoveryClasses>
+          <DiscoveryClassItem>
+            <TypeId>GripLogix.McAfee.McAfeeAgentHandler</TypeId>
+            <Properties>
+              <DiscoveredTypeProperty>
+                <TypeId>GripLogix.McAfee.McAfeeAgentHandler</TypeId>
+                <Property>EPOServer</Property>
+              </DiscoveredTypeProperty>
+            </Properties>
+          </DiscoveryClassItem>
+        </DiscoveryClasses>
+        <DiscoveryRelationships />
+      </DiscoveryConfig>
+    </Instance>
+    <Instance ID="Instance41aba19f693f424ebe9b3672ac5ec449" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.Discovery" Version="1.0.0.0">
+      <DiscoveryConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <Id>Discovery.URL.ePolicyOrchestrator</Id>
+        <DisplayName>Discovery URL Check ePolicy Orchestrator</DisplayName>
+        <Description>Discovers URL Check ePolicy Orchestrator</Description>
+        <DataSourceId>DS</DataSourceId>
+        <DataSourceConfig>&lt;ComputerName&gt;$Target/Host/Property[Type="Windows!Microsoft.Windows.Computer"]/PrincipalName$&lt;/ComputerName&gt;&lt;RegistryAttributeDefinitions&gt;&lt;RegistryAttributeDefinition&gt;&lt;AttributeName&gt;InstallFolder&lt;/AttributeName&gt;&lt;Path&gt;SOFTWARE\Wow6432Node\Network Associates\ePolicy Orchestrator\InstallFolder&lt;/Path&gt;&lt;PathType&gt;1&lt;/PathType&gt;&lt;AttributeType&gt;1&lt;/AttributeType&gt;&lt;/RegistryAttributeDefinition&gt;&lt;RegistryAttributeDefinition&gt;&lt;AttributeName&gt;URL&lt;/AttributeName&gt;&lt;Path&gt;SOFTWARE\McAfeeProbe\URL&lt;/Path&gt;&lt;PathType&gt;1&lt;/PathType&gt;&lt;AttributeType&gt;1&lt;/AttributeType&gt;&lt;/RegistryAttributeDefinition&gt;&lt;/RegistryAttributeDefinitions&gt;&lt;Frequency&gt;14400&lt;/Frequency&gt;&lt;ClassId&gt;$MPElement[Name="GripLogix.McAfee.URL.ePolicyOrchestrator"]$&lt;/ClassId&gt;&lt;InstanceSettings&gt;&lt;Settings&gt;&lt;Setting&gt;&lt;Name&gt;$MPElement[Name="Windows!Microsoft.Windows.Computer"]/PrincipalName$&lt;/Name&gt;&lt;Value&gt;$Target/Host/Property[Type="Windows!Microsoft.Windows.Computer"]/PrincipalName$&lt;/Value&gt;&lt;/Setting&gt;&lt;Setting&gt;&lt;Name&gt;$MPElement[Name="System!System.Entity"]/DisplayName$&lt;/Name&gt;&lt;Value&gt;McAfee ePolicy Orchestrator URL&lt;/Value&gt;&lt;/Setting&gt;&lt;Setting&gt;&lt;Name&gt;$MPElement[Name="GripLogix.McAfee.URL.ePolicyOrchestrator"]/Name$&lt;/Name&gt;&lt;Value&gt;McAfee ePolicy Orchestrator URL&lt;/Value&gt;&lt;/Setting&gt;&lt;/Settings&gt;&lt;/InstanceSettings&gt;&lt;Expression&gt;&lt;RegExExpression&gt;&lt;ValueExpression&gt;&lt;XPathQuery Type="String"&gt;Values/InstallFolder&lt;/XPathQuery&gt;&lt;/ValueExpression&gt;&lt;Operator&gt;MatchesWildcard&lt;/Operator&gt;&lt;Pattern&gt;*EPOLIC*&lt;/Pattern&gt;&lt;/RegExExpression&gt;&lt;/Expression&gt;</DataSourceConfig>
+        <DataSourceType>Windows!Microsoft.Windows.FilteredRegistryDiscoveryProvider</DataSourceType>
+        <Target>GripLogix.McAfee.ePolicyOrchestrator</Target>
+        <Enabled>true</Enabled>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <ConfirmDelivery>false</ConfirmDelivery>
+        <Category>Discovery</Category>
+        <DiscoveryClasses>
+          <DiscoveryClassItem>
+            <TypeId>GripLogix.McAfee.URL.ePolicyOrchestrator</TypeId>
+            <Properties />
+          </DiscoveryClassItem>
+        </DiscoveryClasses>
+        <DiscoveryRelationships />
+      </DiscoveryConfig>
+    </Instance>
+    <Instance ID="Instance4ef6b20851e4471e91f530a17f4b79bc" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.Discovery" Version="1.0.0.0">
+      <DiscoveryConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <Id>Discovery.McAfeeMcShield.RegBased</Id>
+        <DisplayName>Discovery McAfeeShield (registry based)</DisplayName>
+        <Description>Discovers McAfeeShield</Description>
+        <DataSourceId>DS</DataSourceId>
+        <DataSourceConfig>&lt;ComputerName&gt;$Target/Host/Property[Type="Windows!Microsoft.Windows.Computer"]/PrincipalName$&lt;/ComputerName&gt;&lt;RegistryAttributeDefinitions&gt;&lt;RegistryAttributeDefinition&gt;&lt;AttributeName&gt;AppExists&lt;/AttributeName&gt;&lt;Path&gt;SOFTWARE\Wow6432Node\Network Associates\ePolicy Orchestrator\Agent&lt;/Path&gt;&lt;PathType&gt;0&lt;/PathType&gt;&lt;AttributeType&gt;0&lt;/AttributeType&gt;&lt;/RegistryAttributeDefinition&gt;&lt;/RegistryAttributeDefinitions&gt;&lt;Frequency&gt;14400&lt;/Frequency&gt;&lt;ClassId&gt;$MPElement[Name="GripLogix.McAfee.McAfeeMcShield"]$&lt;/ClassId&gt;&lt;InstanceSettings&gt;&lt;Settings&gt;&lt;Setting&gt;&lt;Name&gt;$MPElement[Name="Windows!Microsoft.Windows.Computer"]/PrincipalName$&lt;/Name&gt;&lt;Value&gt;$Target/Host/Property[Type="Windows!Microsoft.Windows.Computer"]/PrincipalName$&lt;/Value&gt;&lt;/Setting&gt;&lt;Setting&gt;&lt;Name&gt;$MPElement[Name="GripLogix.McAfee.McAfeeMcShield"]/RegKeyMcAfeeAgent$&lt;/Name&gt;&lt;Value&gt;HKLM:\\SOFTWARE\Wow6432Node\Network Associates\ePolicy Orchestrator\Agent&lt;/Value&gt;&lt;/Setting&gt;&lt;/Settings&gt;&lt;/InstanceSettings&gt;&lt;Expression&gt;&lt;SimpleExpression&gt;&lt;ValueExpression&gt;&lt;XPathQuery Type="Boolean"&gt;Values/AppExists&lt;/XPathQuery&gt;&lt;/ValueExpression&gt;&lt;Operator&gt;Equal&lt;/Operator&gt;&lt;ValueExpression&gt;&lt;Value Type="Boolean"&gt;true&lt;/Value&gt;&lt;/ValueExpression&gt;&lt;/SimpleExpression&gt;&lt;/Expression&gt;</DataSourceConfig>
+        <DataSourceType>Windows!Microsoft.Windows.FilteredRegistryDiscoveryProvider</DataSourceType>
+        <Target>GripLogix.McAfee.McAfeeMcShield</Target>
+        <Enabled>true</Enabled>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <ConfirmDelivery>false</ConfirmDelivery>
+        <Category>Discovery</Category>
+        <DiscoveryClasses>
+          <DiscoveryClassItem>
+            <TypeId>GripLogix.McAfee.McAfeeMcShield</TypeId>
+            <Properties>
+              <DiscoveredTypeProperty>
+                <TypeId>GripLogix.McAfee.McAfeeMcShield</TypeId>
+                <Property>Version</Property>
+              </DiscoveredTypeProperty>
+            </Properties>
+          </DiscoveryClassItem>
+        </DiscoveryClasses>
+        <DiscoveryRelationships />
+      </DiscoveryConfig>
+    </Instance>
+    <Instance ID="Instance838230f1c969411991b93395f419775e" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.Discovery" Version="1.0.0.0">
+      <DiscoveryConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Id>Discovery.McAfeeEndPointSecurity.RegBased</Id>
+        <DisplayName>Discovery McAfee EndPoint Security (registry based)</DisplayName>
+        <Description>Discovers McAfee EndPoint Security and related properties.</Description>
+        <DataSourceId>DS</DataSourceId>
+        <DataSourceConfig>&lt;ComputerName&gt;$Target/Host/Property[Type="Windows!Microsoft.Windows.Computer"]/PrincipalName$&lt;/ComputerName&gt;&lt;RegistryAttributeDefinitions&gt;&lt;RegistryAttributeDefinition&gt;&lt;AttributeName&gt;AppExists&lt;/AttributeName&gt;&lt;Path&gt;SOFTWARE\Wow6432Node\Network Associates\ePolicy Orchestrator\Agent&lt;/Path&gt;&lt;PathType&gt;0&lt;/PathType&gt;&lt;AttributeType&gt;0&lt;/AttributeType&gt;&lt;/RegistryAttributeDefinition&gt;&lt;/RegistryAttributeDefinitions&gt;&lt;Frequency&gt;14400&lt;/Frequency&gt;&lt;ClassId&gt;$MPElement[Name="GripLogix.McAfee.McAfeeEndPointSecurity"]$&lt;/ClassId&gt;&lt;InstanceSettings&gt;&lt;Settings&gt;&lt;Setting&gt;&lt;Name&gt;$MPElement[Name="Windows!Microsoft.Windows.Computer"]/PrincipalName$&lt;/Name&gt;&lt;Value&gt;$Target/Host/Property[Type="Windows!Microsoft.Windows.Computer"]/PrincipalName$&lt;/Value&gt;&lt;/Setting&gt;&lt;Setting&gt;&lt;Name&gt;$MPElement[Name="GripLogix.McAfee.McAfeeEndPointSecurity"]/RegKeyMcAfeeAgent$&lt;/Name&gt;&lt;Value&gt;HKLM:\\SOFTWARE\Wow6432Node\Network Associates\ePolicy Orchestrator\Agent&lt;/Value&gt;&lt;/Setting&gt;&lt;/Settings&gt;&lt;/InstanceSettings&gt;&lt;Expression&gt;&lt;SimpleExpression&gt;&lt;ValueExpression&gt;&lt;XPathQuery Type="Boolean"&gt;Values/AppExists&lt;/XPathQuery&gt;&lt;/ValueExpression&gt;&lt;Operator&gt;Equal&lt;/Operator&gt;&lt;ValueExpression&gt;&lt;Value Type="Boolean"&gt;true&lt;/Value&gt;&lt;/ValueExpression&gt;&lt;/SimpleExpression&gt;&lt;/Expression&gt;</DataSourceConfig>
+        <DataSourceType>Windows!Microsoft.Windows.FilteredRegistryDiscoveryProvider</DataSourceType>
+        <Target>GripLogix.McAfee.McAfeeEndPointSecurity</Target>
+        <Enabled>true</Enabled>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <ConfirmDelivery>false</ConfirmDelivery>
+        <Category>Discovery</Category>
+        <DiscoveryClasses>
+          <DiscoveryClassItem>
+            <TypeId>GripLogix.McAfee.McAfeeEndPointSecurity</TypeId>
+            <Properties>
+              <DiscoveredTypeProperty>
+                <TypeId>GripLogix.McAfee.McAfeeMcShield</TypeId>
+                <Property>Version</Property>
+              </DiscoveredTypeProperty>
+            </Properties>
+          </DiscoveryClassItem>
+        </DiscoveryClasses>
+        <DiscoveryRelationships />
+      </DiscoveryConfig>
+    </Instance>
+    <Instance ID="Instance993b53b989f0444a8b75aae5e42acf11" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.Discovery" Version="1.0.0.0">
+      <DiscoveryConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <Id>Discovery.McAfeeMcShield.WindowsServices</Id>
+        <DisplayName>Discovery McAfeeMcShield Windows Services</DisplayName>
+        <Description>Discovers McAfeeMcShield Windows Services</Description>
+        <DataSourceId>DS</DataSourceId>
+        <DataSourceConfig>&lt;NameSpace&gt;root\cimv2&lt;/NameSpace&gt;&lt;Query&gt;select * from win32_service where displayname like 'McAfee McShield%'&lt;/Query&gt;&lt;Frequency&gt;14400&lt;/Frequency&gt;&lt;ClassId&gt;$MPElement[Name="GripLogix.McAfee.WindowsService.McAfeeMcShield"]$&lt;/ClassId&gt;&lt;InstanceSettings&gt;&lt;Settings&gt;&lt;Setting&gt;&lt;Name&gt;$MPElement[Name="Windows!Microsoft.Windows.Computer"]/PrincipalName$&lt;/Name&gt;&lt;Value&gt;$Target/Host/Property[Type="Windows!Microsoft.Windows.Computer"]/PrincipalName$&lt;/Value&gt;&lt;/Setting&gt;&lt;Setting&gt;&lt;Name&gt;$MPElement[Name="GripLogix.McAfee.WindowsService.McAfeeMcShield"]/ServiceName$&lt;/Name&gt;&lt;Value&gt;$Data/Property[@Name='Name']$&lt;/Value&gt;&lt;/Setting&gt;&lt;Setting&gt;&lt;Name&gt;$MPElement[Name="GripLogix.McAfee.WindowsService.McAfeeMcShield"]/ServiceProcessName$&lt;/Name&gt;&lt;Value&gt;$Data/Property[@Name='PathName']$&lt;/Value&gt;&lt;/Setting&gt;&lt;Setting&gt;&lt;Name&gt;$MPElement[Name="System!System.Entity"]/DisplayName$&lt;/Name&gt;&lt;Value&gt;$Data/Property[@Name='DisplayName']$&lt;/Value&gt;&lt;/Setting&gt;&lt;/Settings&gt;&lt;/InstanceSettings&gt;</DataSourceConfig>
+        <DataSourceType>Windows!Microsoft.Windows.WmiProviderWithClassSnapshotDataMapper</DataSourceType>
+        <Target>GripLogix.McAfee.McAfeeMcShield</Target>
+        <Enabled>true</Enabled>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <ConfirmDelivery>false</ConfirmDelivery>
+        <Category>Discovery</Category>
+        <DiscoveryClasses>
+          <DiscoveryClassItem>
+            <TypeId>GripLogix.McAfee.WindowsService.McAfeeMcShield</TypeId>
+            <Properties />
+          </DiscoveryClassItem>
+        </DiscoveryClasses>
+        <DiscoveryRelationships />
+      </DiscoveryConfig>
+    </Instance>
+    <Instance ID="Instance7511185562434762952b65ee012edccd" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.Discovery" Version="1.0.0.0">
+      <DiscoveryConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Id>Discovery.McAfeeAgentHandler.Version</Id>
+        <DisplayName>Discovery McAfeeAgentHandler Version</DisplayName>
+        <Description>Discovers McAfeeAgentHandler Version.</Description>
+        <DataSourceId>DS</DataSourceId>
+        <DataSourceConfig>&lt;InstallPath&gt;$Target/Property[Type="GripLogix.McAfee.McAfeeAgentHandler"]/InstalledPath$&lt;/InstallPath&gt;&lt;SearchFileInstallPath&gt;:\Program Files (x86)\McAfee\Agent Handler\DB\server.ini&lt;/SearchFileInstallPath&gt;&lt;SearchPattern&gt;^Version=&lt;/SearchPattern&gt;&lt;StripPattern&gt;.*Version=&lt;/StripPattern&gt;&lt;TimeoutSeconds&gt;300&lt;/TimeoutSeconds&gt;&lt;IntervalSeconds&gt;14400&lt;/IntervalSeconds&gt;&lt;ComputerName&gt;$Target/Host/Property[Type="Windows!Microsoft.Windows.Computer"]/PrincipalName$&lt;/ComputerName&gt;</DataSourceConfig>
+        <DataSourceType>GripLogix.McAfee.DataSource.McAfeeAgentHandlerPropertyDiscovery</DataSourceType>
+        <Target>GripLogix.McAfee.McAfeeAgentHandler</Target>
+        <Enabled>true</Enabled>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <ConfirmDelivery>false</ConfirmDelivery>
+        <Category>Discovery</Category>
+        <DiscoveryClasses>
+          <DiscoveryClassItem>
+            <TypeId>GripLogix.McAfee.McAfeeAgentHandler</TypeId>
+            <Properties>
+              <DiscoveredTypeProperty>
+                <TypeId>GripLogix.McAfee.McAfeeAgentHandler</TypeId>
+                <Property>Version</Property>
+              </DiscoveredTypeProperty>
+            </Properties>
+          </DiscoveryClassItem>
+        </DiscoveryClasses>
+        <DiscoveryRelationships />
+      </DiscoveryConfig>
+    </Instance>
+    <Instance ID="Instance47d610c2a37b447d80dc73bddf4bc89b" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.Discovery" Version="1.0.0.0">
+      <DiscoveryConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Id>Discovery.McAfeeAgentHandler.DatabaseServer</Id>
+        <DisplayName>Discovery McAfeeAgentHandler Database Server</DisplayName>
+        <Description>Discovers McAfeeAgentHandler Database Server.</Description>
+        <DataSourceId>DS</DataSourceId>
+        <DataSourceConfig>&lt;InstallPath&gt;$Target/Property[Type="GripLogix.McAfee.McAfeeAgentHandler"]/InstalledPath$&lt;/InstallPath&gt;&lt;SearchFileInstallPath&gt;:\Program Files (x86)\McAfee\Agent Handler\DB\db.properties&lt;/SearchFileInstallPath&gt;&lt;SearchPattern&gt;^db.server.name=&lt;/SearchPattern&gt;&lt;StripPattern&gt;.*db.server.name=&lt;/StripPattern&gt;&lt;TimeoutSeconds&gt;300&lt;/TimeoutSeconds&gt;&lt;IntervalSeconds&gt;14400&lt;/IntervalSeconds&gt;&lt;ComputerName&gt;$Target/Host/Property[Type="Windows!Microsoft.Windows.Computer"]/PrincipalName$&lt;/ComputerName&gt;</DataSourceConfig>
+        <DataSourceType>GripLogix.McAfee.DataSource.McAfeeAgentHandlerPropertyDiscovery</DataSourceType>
+        <Target>GripLogix.McAfee.McAfeeAgentHandler</Target>
+        <Enabled>true</Enabled>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <ConfirmDelivery>false</ConfirmDelivery>
+        <Category>Discovery</Category>
+        <DiscoveryClasses>
+          <DiscoveryClassItem>
+            <TypeId>GripLogix.McAfee.McAfeeAgentHandler</TypeId>
+            <Properties>
+              <DiscoveredTypeProperty>
+                <TypeId>GripLogix.McAfee.McAfeeAgentHandler</TypeId>
+                <Property>DatabaseServer</Property>
+              </DiscoveredTypeProperty>
+            </Properties>
+          </DiscoveryClassItem>
+        </DiscoveryClasses>
+        <DiscoveryRelationships />
+      </DiscoveryConfig>
+    </Instance>
+    <Instance ID="Instance984739046b79496d8d5025865aa5fcb4" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.Discovery" Version="1.0.0.0">
+      <DiscoveryConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Id>Discovery.McAfeeAgentHandler</Id>
+        <DisplayName>Discovery McAfee Agent Handler</DisplayName>
+        <Description>Discovers McAfee Agent Handlers.</Description>
+        <DataSourceId>DS</DataSourceId>
+        <DataSourceConfig>&lt;ComputerName&gt;$Target/Property[Type="Windows!Microsoft.Windows.Computer"]/PrincipalName$&lt;/ComputerName&gt;&lt;RegistryAttributeDefinitions&gt;&lt;RegistryAttributeDefinition&gt;&lt;AttributeName&gt;InstallFolder&lt;/AttributeName&gt;&lt;Path&gt;SOFTWARE\Wow6432Node\Network Associates\ePolicy Orchestrator\InstallFolder&lt;/Path&gt;&lt;PathType&gt;1&lt;/PathType&gt;&lt;AttributeType&gt;1&lt;/AttributeType&gt;&lt;/RegistryAttributeDefinition&gt;&lt;/RegistryAttributeDefinitions&gt;&lt;Frequency&gt;14400&lt;/Frequency&gt;&lt;ClassId&gt;$MPElement[Name="GripLogix.McAfee.McAfeeAgentHandler"]$&lt;/ClassId&gt;&lt;InstanceSettings&gt;&lt;Settings&gt;&lt;Setting&gt;&lt;Name&gt;$MPElement[Name="Windows!Microsoft.Windows.Computer"]/PrincipalName$&lt;/Name&gt;&lt;Value&gt;$Target/Property[Type="Windows!Microsoft.Windows.Computer"]/PrincipalName$&lt;/Value&gt;&lt;/Setting&gt;&lt;Setting&gt;&lt;Name&gt;$MPElement[Name="GripLogix.McAfee.McAfeeAgentHandler"]/InstalledPath$&lt;/Name&gt;&lt;Value&gt;$Data/Values/InstallFolder$&lt;/Value&gt;&lt;/Setting&gt;&lt;Setting&gt;&lt;Name&gt;$MPElement[Name="System!System.Entity"]/DisplayName$&lt;/Name&gt;&lt;Value&gt;$Target/Property[Type="Windows!Microsoft.Windows.Computer"]/PrincipalName$&lt;/Value&gt;&lt;/Setting&gt;&lt;Setting&gt;&lt;Name&gt;$MPElement[Name="GripLogix.McAfee.McAfeeAgentHandler"]/Name$&lt;/Name&gt;&lt;Value&gt;McAfee Agent Handler&lt;/Value&gt;&lt;/Setting&gt;&lt;/Settings&gt;&lt;/InstanceSettings&gt;&lt;Expression&gt;&lt;RegExExpression&gt;&lt;ValueExpression&gt;&lt;XPathQuery Type="String"&gt;Values/InstallFolder&lt;/XPathQuery&gt;&lt;/ValueExpression&gt;&lt;Operator&gt;MatchesWildcard&lt;/Operator&gt;&lt;Pattern&gt;*Handler*&lt;/Pattern&gt;&lt;/RegExExpression&gt;&lt;/Expression&gt;</DataSourceConfig>
+        <DataSourceType>Windows!Microsoft.Windows.FilteredRegistryDiscoveryProvider</DataSourceType>
+        <Target>Windows!Microsoft.Windows.Computer</Target>
+        <Enabled>true</Enabled>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <ConfirmDelivery>false</ConfirmDelivery>
+        <Category>Discovery</Category>
+        <DiscoveryClasses>
+          <DiscoveryClassItem>
+            <TypeId>GripLogix.McAfee.McAfeeAgentHandler</TypeId>
+            <Properties />
+          </DiscoveryClassItem>
+        </DiscoveryClasses>
+        <DiscoveryRelationships />
+      </DiscoveryConfig>
+    </Instance>
+    <Instance ID="Instancecf67f131840d43b78f935f1a848f2dc6" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.Discovery" Version="1.0.0.0">
+      <DiscoveryConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Id>Discovery.ePolicyOrchestrator.Version</Id>
+        <DisplayName>Discovery ePolicyOrchestrator Version</DisplayName>
+        <Description>Discovers ePolicyOrchestrator Version.</Description>
+        <DataSourceId>DS</DataSourceId>
+        <DataSourceConfig>&lt;InstallPath&gt;$Target/Property[Type="GripLogix.McAfee.ePolicyOrchestrator"]/InstalledPath$&lt;/InstallPath&gt;&lt;SearchFileInstallPath&gt;:\Program Files (x86)\McAfee\ePolicy Orchestrator\DB\server.ini&lt;/SearchFileInstallPath&gt;&lt;SearchPattern&gt;^Version=&lt;/SearchPattern&gt;&lt;StripPattern&gt;.*Version=&lt;/StripPattern&gt;&lt;TimeoutSeconds&gt;300&lt;/TimeoutSeconds&gt;&lt;IntervalSeconds&gt;14400&lt;/IntervalSeconds&gt;&lt;ComputerName&gt;$Target/Host/Property[Type="Windows!Microsoft.Windows.Computer"]/PrincipalName$&lt;/ComputerName&gt;</DataSourceConfig>
+        <DataSourceType>GripLogix.McAfee.DataSource.ePolicyOrchPropertyDiscovery</DataSourceType>
+        <Target>GripLogix.McAfee.ePolicyOrchestrator</Target>
+        <Enabled>true</Enabled>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <ConfirmDelivery>false</ConfirmDelivery>
+        <Category>Discovery</Category>
+        <DiscoveryClasses>
+          <DiscoveryClassItem>
+            <TypeId>GripLogix.McAfee.ePolicyOrchestrator</TypeId>
+            <Properties>
+              <DiscoveredTypeProperty>
+                <TypeId>GripLogix.McAfee.ePolicyOrchestrator</TypeId>
+                <Property>Version</Property>
+              </DiscoveredTypeProperty>
+            </Properties>
+          </DiscoveryClassItem>
+        </DiscoveryClasses>
+        <DiscoveryRelationships />
+      </DiscoveryConfig>
+    </Instance>
+    <Instance ID="Instance25bcd67d95d54101b8de7a7b47d566b3" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.Discovery" Version="1.0.0.0">
+      <DiscoveryConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Id>Discovery.ePolicyOrchestrator.Database</Id>
+        <DisplayName>Discovery ePolicyOrchestrator Database</DisplayName>
+        <Description>Discovers ePolicyOrchestrator Database.</Description>
+        <DataSourceId>DS</DataSourceId>
+        <DataSourceConfig>&lt;InstallPath&gt;$Target/Property[Type="GripLogix.McAfee.ePolicyOrchestrator"]/InstalledPath$&lt;/InstallPath&gt;&lt;SearchFileInstallPath&gt;:\Program Files (x86)\McAfee\ePolicy Orchestrator\Server\conf\orion\db.properties&lt;/SearchFileInstallPath&gt;&lt;SearchPattern&gt;^db.database.name=&lt;/SearchPattern&gt;&lt;StripPattern&gt;.*db.database.name=&lt;/StripPattern&gt;&lt;TimeoutSeconds&gt;300&lt;/TimeoutSeconds&gt;&lt;IntervalSeconds&gt;14400&lt;/IntervalSeconds&gt;&lt;ComputerName&gt;$Target/Host/Property[Type="Windows!Microsoft.Windows.Computer"]/PrincipalName$&lt;/ComputerName&gt;</DataSourceConfig>
+        <DataSourceType>GripLogix.McAfee.DataSource.ePolicyOrchPropertyDiscovery</DataSourceType>
+        <Target>GripLogix.McAfee.ePolicyOrchestrator</Target>
+        <Enabled>true</Enabled>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <ConfirmDelivery>false</ConfirmDelivery>
+        <Category>Discovery</Category>
+        <DiscoveryClasses>
+          <DiscoveryClassItem>
+            <TypeId>GripLogix.McAfee.ePolicyOrchestrator</TypeId>
+            <Properties>
+              <DiscoveredTypeProperty>
+                <TypeId>GripLogix.McAfee.ePolicyOrchestrator</TypeId>
+                <Property>Database</Property>
+              </DiscoveredTypeProperty>
+            </Properties>
+          </DiscoveryClassItem>
+        </DiscoveryClasses>
+        <DiscoveryRelationships />
+      </DiscoveryConfig>
+    </Instance>
+    <Instance ID="Instance34c5bef16e084ea8affb126b22f9a844" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.Discovery" Version="1.0.0.0">
+      <DiscoveryConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Id>Discovery.McAfeeAgentHandler.Database</Id>
+        <DisplayName>Discovery McAfeeAgentHandler Database</DisplayName>
+        <Description>Discovers McAfeeAgentHandler Database.</Description>
+        <DataSourceId>DS</DataSourceId>
+        <DataSourceConfig>&lt;InstallPath&gt;$Target/Property[Type="GripLogix.McAfee.McAfeeAgentHandler"]/InstalledPath$&lt;/InstallPath&gt;&lt;SearchFileInstallPath&gt;:\Program Files (x86)\McAfee\Agent Handler\DB\db.properties&lt;/SearchFileInstallPath&gt;&lt;SearchPattern&gt;^db.database.name=&lt;/SearchPattern&gt;&lt;StripPattern&gt;.*db.database.name=&lt;/StripPattern&gt;&lt;TimeoutSeconds&gt;300&lt;/TimeoutSeconds&gt;&lt;IntervalSeconds&gt;14400&lt;/IntervalSeconds&gt;&lt;ComputerName&gt;$Target/Host/Property[Type="Windows!Microsoft.Windows.Computer"]/PrincipalName$&lt;/ComputerName&gt;</DataSourceConfig>
+        <DataSourceType>GripLogix.McAfee.DataSource.McAfeeAgentHandlerPropertyDiscovery</DataSourceType>
+        <Target>GripLogix.McAfee.McAfeeAgentHandler</Target>
+        <Enabled>true</Enabled>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <ConfirmDelivery>false</ConfirmDelivery>
+        <Category>Discovery</Category>
+        <DiscoveryClasses>
+          <DiscoveryClassItem>
+            <TypeId>GripLogix.McAfee.McAfeeAgentHandler</TypeId>
+            <Properties />
+          </DiscoveryClassItem>
+        </DiscoveryClasses>
+        <DiscoveryRelationships />
+      </DiscoveryConfig>
+    </Instance>
+    <Instance ID="Instanced91cdff80c7e446cae54abdc2fca34cd" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.Discovery" Version="1.0.0.0">
+      <DiscoveryConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Id>Discovery.ePolicyOrchestrator</Id>
+        <DisplayName>Discovery ePolicyOrchestrator</DisplayName>
+        <Description>Discovers ePolicyOrchestrator and InstalledPath.</Description>
+        <DataSourceId>DS</DataSourceId>
+        <DataSourceConfig>&lt;ComputerName&gt;$Target/Property[Type="Windows!Microsoft.Windows.Computer"]/PrincipalName$&lt;/ComputerName&gt;&lt;RegistryAttributeDefinitions&gt;&lt;RegistryAttributeDefinition&gt;&lt;AttributeName&gt;InstallFolder&lt;/AttributeName&gt;&lt;Path&gt;SOFTWARE\Wow6432Node\Network Associates\ePolicy Orchestrator\InstallFolder&lt;/Path&gt;&lt;PathType&gt;1&lt;/PathType&gt;&lt;AttributeType&gt;1&lt;/AttributeType&gt;&lt;/RegistryAttributeDefinition&gt;&lt;/RegistryAttributeDefinitions&gt;&lt;Frequency&gt;14400&lt;/Frequency&gt;&lt;ClassId&gt;$MPElement[Name="GripLogix.McAfee.ePolicyOrchestrator"]$&lt;/ClassId&gt;&lt;InstanceSettings&gt;&lt;Settings&gt;&lt;Setting&gt;&lt;Name&gt;$MPElement[Name="Windows!Microsoft.Windows.Computer"]/PrincipalName$&lt;/Name&gt;&lt;Value&gt;$Target/Property[Type="Windows!Microsoft.Windows.Computer"]/PrincipalName$&lt;/Value&gt;&lt;/Setting&gt;&lt;Setting&gt;&lt;Name&gt;$MPElement[Name="GripLogix.McAfee.ePolicyOrchestrator"]/InstalledPath$&lt;/Name&gt;&lt;Value&gt;$Data/Values/InstallFolder$&lt;/Value&gt;&lt;/Setting&gt;&lt;Setting&gt;&lt;Name&gt;$MPElement[Name="GripLogix.McAfee.ePolicyOrchestrator"]/Name$&lt;/Name&gt;&lt;Value&gt;McAfee ePolicy Orchestrator&lt;/Value&gt;&lt;/Setting&gt;&lt;Setting&gt;&lt;Name&gt;$MPElement[Name="System!System.Entity"]/DisplayName$&lt;/Name&gt;&lt;Value&gt;$Target/Property[Type="Windows!Microsoft.Windows.Computer"]/PrincipalName$&lt;/Value&gt;&lt;/Setting&gt;&lt;/Settings&gt;&lt;/InstanceSettings&gt;&lt;Expression&gt;&lt;RegExExpression&gt;&lt;ValueExpression&gt;&lt;XPathQuery Type="String"&gt;Values/InstallFolder&lt;/XPathQuery&gt;&lt;/ValueExpression&gt;&lt;Operator&gt;MatchesWildcard&lt;/Operator&gt;&lt;Pattern&gt;*EPOLIC*&lt;/Pattern&gt;&lt;/RegExExpression&gt;&lt;/Expression&gt;</DataSourceConfig>
+        <DataSourceType>Windows!Microsoft.Windows.FilteredRegistryDiscoveryProvider</DataSourceType>
+        <Target>Windows!Microsoft.Windows.Computer</Target>
+        <Enabled>true</Enabled>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <ConfirmDelivery>false</ConfirmDelivery>
+        <Category>Discovery</Category>
+        <DiscoveryClasses>
+          <DiscoveryClassItem>
+            <TypeId>GripLogix.McAfee.ePolicyOrchestrator</TypeId>
+            <Properties />
+          </DiscoveryClassItem>
+        </DiscoveryClasses>
+        <DiscoveryRelationships />
+      </DiscoveryConfig>
+    </Instance>
+    <Instance ID="Instanceb723e6cd4caf45329e497ffd1ef7071e" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.Discovery" Version="1.0.0.0">
+      <DiscoveryConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <Id>Discovery.ePolicyOrchestrator.WindowsServices</Id>
+        <DisplayName>Discovery ePolicyOrchestrator Windows Services</DisplayName>
+        <Description>Discovers ePolicyOrchestrator Windows Services</Description>
+        <DataSourceId>DS</DataSourceId>
+        <DataSourceConfig>&lt;NameSpace&gt;root\cimv2&lt;/NameSpace&gt;&lt;Query&gt;select * from win32_service where displayname like 'McAfee ePolicy%'&lt;/Query&gt;&lt;Frequency&gt;14400&lt;/Frequency&gt;&lt;ClassId&gt;$MPElement[Name="GripLogix.McAfee.WindowsService.McAfeeEpolicyOrchestrator"]$&lt;/ClassId&gt;&lt;InstanceSettings&gt;&lt;Settings&gt;&lt;Setting&gt;&lt;Name&gt;$MPElement[Name="Windows!Microsoft.Windows.Computer"]/PrincipalName$&lt;/Name&gt;&lt;Value&gt;$Target/Host/Property[Type="Windows!Microsoft.Windows.Computer"]/PrincipalName$&lt;/Value&gt;&lt;/Setting&gt;&lt;Setting&gt;&lt;Name&gt;$MPElement[Name="GripLogix.McAfee.WindowsService.McAfeeEpolicyOrchestrator"]/ServiceName$&lt;/Name&gt;&lt;Value&gt;$Data/Property[@Name='Name']$&lt;/Value&gt;&lt;/Setting&gt;&lt;Setting&gt;&lt;Name&gt;$MPElement[Name="GripLogix.McAfee.WindowsService.McAfeeEpolicyOrchestrator"]/ServiceProcessName$&lt;/Name&gt;&lt;Value&gt;$Data/Property[@Name='PathName']$&lt;/Value&gt;&lt;/Setting&gt;&lt;Setting&gt;&lt;Name&gt;$MPElement[Name="System!System.Entity"]/DisplayName$&lt;/Name&gt;&lt;Value&gt;$Data/Property[@Name='DisplayName']$&lt;/Value&gt;&lt;/Setting&gt;&lt;/Settings&gt;&lt;/InstanceSettings&gt;</DataSourceConfig>
+        <DataSourceType>Windows!Microsoft.Windows.WmiProviderWithClassSnapshotDataMapper</DataSourceType>
+        <Target>GripLogix.McAfee.ePolicyOrchestrator</Target>
+        <Enabled>true</Enabled>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <ConfirmDelivery>false</ConfirmDelivery>
+        <Category>Discovery</Category>
+        <DiscoveryClasses>
+          <DiscoveryClassItem>
+            <TypeId>GripLogix.McAfee.WindowsService.McAfeeEpolicyOrchestrator</TypeId>
+            <Properties />
+          </DiscoveryClassItem>
+        </DiscoveryClasses>
+        <DiscoveryRelationships />
+      </DiscoveryConfig>
+    </Instance>
+    <Instance ID="Instanceb0aecd592886487783054623e005e985" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.Discovery" Version="1.0.0.0">
+      <DiscoveryConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <Id>Discovery.McAfeeAgentHandler.WindowsServices</Id>
+        <DisplayName>Discovery McAfeeAgentHandler Windows Services</DisplayName>
+        <Description>Discovers McAfeeAgentHandler Windows Services</Description>
+        <DataSourceId>DS</DataSourceId>
+        <DataSourceConfig>&lt;NameSpace&gt;root\cimv2&lt;/NameSpace&gt;&lt;Query&gt;select * from win32_service where displayname like 'McAfee ePolicy%'&lt;/Query&gt;&lt;Frequency&gt;14400&lt;/Frequency&gt;&lt;ClassId&gt;$MPElement[Name="GripLogix.McAfee.WindowsService.McAfeeAgentHandler"]$&lt;/ClassId&gt;&lt;InstanceSettings&gt;&lt;Settings&gt;&lt;Setting&gt;&lt;Name&gt;$MPElement[Name="Windows!Microsoft.Windows.Computer"]/PrincipalName$&lt;/Name&gt;&lt;Value&gt;$Target/Host/Property[Type="Windows!Microsoft.Windows.Computer"]/PrincipalName$&lt;/Value&gt;&lt;/Setting&gt;&lt;Setting&gt;&lt;Name&gt;$MPElement[Name="GripLogix.McAfee.WindowsService.McAfeeAgentHandler"]/ServiceName$&lt;/Name&gt;&lt;Value&gt;$Data/Property[@Name='Name']$&lt;/Value&gt;&lt;/Setting&gt;&lt;Setting&gt;&lt;Name&gt;$MPElement[Name="GripLogix.McAfee.WindowsService.McAfeeAgentHandler"]/ServiceProcessName$&lt;/Name&gt;&lt;Value&gt;$Data/Property[@Name='PathName']$&lt;/Value&gt;&lt;/Setting&gt;&lt;Setting&gt;&lt;Name&gt;$MPElement[Name="System!System.Entity"]/DisplayName$&lt;/Name&gt;&lt;Value&gt;$Data/Property[@Name='DisplayName']$&lt;/Value&gt;&lt;/Setting&gt;&lt;/Settings&gt;&lt;/InstanceSettings&gt;</DataSourceConfig>
+        <DataSourceType>Windows!Microsoft.Windows.WmiProviderWithClassSnapshotDataMapper</DataSourceType>
+        <Target>GripLogix.McAfee.McAfeeAgentHandler</Target>
+        <Enabled>true</Enabled>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <ConfirmDelivery>false</ConfirmDelivery>
+        <Category>Discovery</Category>
+        <DiscoveryClasses>
+          <DiscoveryClassItem>
+            <TypeId>GripLogix.McAfee.WindowsService.McAfeeAgentHandler</TypeId>
+            <Properties />
+          </DiscoveryClassItem>
+        </DiscoveryClasses>
+        <DiscoveryRelationships />
+      </DiscoveryConfig>
+    </Instance>
+    <Instance ID="Instancea6fb8b87ba6d497197329d513f0baa96" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.Discovery" Version="1.0.0.0">
+      <DiscoveryConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Id>Discovery.McAfeeMoveAgentless.WindowsServices</Id>
+        <DisplayName>Discovery McAfee Move Agentless Windows Services</DisplayName>
+        <Description>Discovers McAfee Move Agentless Windows Services</Description>
+        <DataSourceId>DS</DataSourceId>
+        <DataSourceConfig>&lt;ComputerName&gt;$Target/Host/Property[Type="Windows!Microsoft.Windows.Computer"]/NetworkName$&lt;/ComputerName&gt;&lt;ServiceName&gt;Vsepflt&lt;/ServiceName&gt;&lt;Frequency&gt;90&lt;/Frequency&gt;&lt;ClassId&gt;$MPElement[Name="GripLogix.McAfee.WindowsService.McAfeeMoveAgentless"]$&lt;/ClassId&gt;&lt;InstanceSettings&gt;&lt;Settings&gt;&lt;Setting&gt;&lt;Name&gt;$MPElement[Name="Windows!Microsoft.Windows.Computer"]/PrincipalName$&lt;/Name&gt;&lt;Value&gt;$Target/Host/Property[Type="Windows!Microsoft.Windows.Computer"]/PrincipalName$&lt;/Value&gt;&lt;/Setting&gt;&lt;Setting&gt;&lt;Name&gt;$MPElement[Name="GripLogix.McAfee.WindowsService.McAfeeMoveAgentless"]/ServiceName$&lt;/Name&gt;&lt;Value&gt;$Data/Property[@Name='Name']$&lt;/Value&gt;&lt;/Setting&gt;&lt;Setting&gt;&lt;Name&gt;$MPElement[Name="System!System.Entity"]/DisplayName$&lt;/Name&gt;&lt;Value&gt;$Data/Property[@Name='DisplayName']$&lt;/Value&gt;&lt;/Setting&gt;&lt;/Settings&gt;&lt;/InstanceSettings&gt;</DataSourceConfig>
+        <DataSourceType>Windows!Microsoft.Windows.Win32ServiceInformationProviderWithClassSnapshotDataMapper</DataSourceType>
+        <Target>GripLogix.McAfee.McAfeeMoveAgentless</Target>
+        <Enabled>true</Enabled>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <ConfirmDelivery>false</ConfirmDelivery>
+        <Category>Discovery</Category>
+        <DiscoveryClasses>
+          <DiscoveryClassItem>
+            <TypeId>GripLogix.McAfee.WindowsService.McAfeeMoveAgentless</TypeId>
+            <Properties />
+          </DiscoveryClassItem>
+        </DiscoveryClasses>
+        <DiscoveryRelationships />
+      </DiscoveryConfig>
+    </Instance>
+    <Instance ID="Instance43e8a0742a6c4e90ae79b1b0f6dc7cbd" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.Discovery" Version="1.0.0.0">
+      <DiscoveryConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <Id>Discovery.McAfeeEndPointSecurity.WindowsServices</Id>
+        <DisplayName>Discovery McAfee EndPointSecurity Windows Services</DisplayName>
+        <Description>Discovers McAfee EndPointSecurity Windows Services</Description>
+        <DataSourceId>DS</DataSourceId>
+        <DataSourceConfig>&lt;NameSpace&gt;root\cimv2&lt;/NameSpace&gt;&lt;Query&gt;select * from win32_service where displayname like 'McAfee Service Controller%'&lt;/Query&gt;&lt;Frequency&gt;14400&lt;/Frequency&gt;&lt;ClassId&gt;$MPElement[Name="GripLogix.McAfee.WindowsService.McAfeeEndPointSecurity"]$&lt;/ClassId&gt;&lt;InstanceSettings&gt;&lt;Settings&gt;&lt;Setting&gt;&lt;Name&gt;$MPElement[Name="Windows!Microsoft.Windows.Computer"]/PrincipalName$&lt;/Name&gt;&lt;Value&gt;$Target/Host/Property[Type="Windows!Microsoft.Windows.Computer"]/PrincipalName$&lt;/Value&gt;&lt;/Setting&gt;&lt;Setting&gt;&lt;Name&gt;$MPElement[Name="GripLogix.McAfee.WindowsService.McAfeeEndPointSecurity"]/ServiceName$&lt;/Name&gt;&lt;Value&gt;$Data/Property[@Name='Name']$&lt;/Value&gt;&lt;/Setting&gt;&lt;Setting&gt;&lt;Name&gt;$MPElement[Name="GripLogix.McAfee.WindowsService.McAfeeEndPointSecurity"]/ServiceProcessName$&lt;/Name&gt;&lt;Value&gt;$Data/Property[@Name='PathName']$&lt;/Value&gt;&lt;/Setting&gt;&lt;Setting&gt;&lt;Name&gt;$MPElement[Name="System!System.Entity"]/DisplayName$&lt;/Name&gt;&lt;Value&gt;$Data/Property[@Name='DisplayName']$&lt;/Value&gt;&lt;/Setting&gt;&lt;/Settings&gt;&lt;/InstanceSettings&gt;</DataSourceConfig>
+        <DataSourceType>Windows!Microsoft.Windows.WmiProviderWithClassSnapshotDataMapper</DataSourceType>
+        <Target>GripLogix.McAfee.McAfeeEndPointSecurity</Target>
+        <Enabled>true</Enabled>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <ConfirmDelivery>false</ConfirmDelivery>
+        <Category>Discovery</Category>
+        <DiscoveryClasses>
+          <DiscoveryClassItem>
+            <TypeId>GripLogix.McAfee.WindowsService.McAfeeEndPointSecurity</TypeId>
+            <Properties />
+          </DiscoveryClassItem>
+        </DiscoveryClasses>
+        <DiscoveryRelationships />
+      </DiscoveryConfig>
+    </Instance>
+    <Instance ID="Instance916dc54ba07e4e4abedf153e472b1206" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.Discovery" Version="1.0.0.0">
+      <DiscoveryConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Id>Discovery.McAfeeThreadPrevention.PSBased</Id>
+        <DisplayName>Discovery McAfee Thread Prevention (powershell based)</DisplayName>
+        <Description>Discovers McAfee Thread Prevention</Description>
+        <DataSourceId>DS</DataSourceId>
+        <DataSourceConfig>&lt;IntervalSeconds&gt;14400&lt;/IntervalSeconds&gt;&lt;ComputerName&gt;$Target/Property[Type="Windows!Microsoft.Windows.Computer"]/PrincipalName$&lt;/ComputerName&gt;&lt;InstanceType&gt;ThreadPrevention&lt;/InstanceType&gt;&lt;RegKeyPath&gt;HKLM:\\SOFTWARE\Wow6432Node\Network Associates\ePolicy Orchestrator\Application Plugins\ENDP_AM_*&lt;/RegKeyPath&gt;</DataSourceConfig>
+        <DataSourceType>GripLogix.McAfee.DataSource.Discovery.McAfeePSRegistryBasedDiscovery</DataSourceType>
+        <Target>Windows!Microsoft.Windows.Computer</Target>
+        <Enabled>true</Enabled>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <ConfirmDelivery>false</ConfirmDelivery>
+        <Category>Discovery</Category>
+        <DiscoveryClasses>
+          <DiscoveryClassItem>
+            <TypeId>GripLogix.McAfee.McAfeeThreadPrevention</TypeId>
+            <Properties />
+          </DiscoveryClassItem>
+        </DiscoveryClasses>
+        <DiscoveryRelationships />
+      </DiscoveryConfig>
+    </Instance>
+    <Instance ID="Instanceeb9226199a524938989c9c7a3daa655d" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.Discovery" Version="1.0.0.0">
+      <DiscoveryConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Id>Discovery.McAfeeAgent.WindowsServices</Id>
+        <DisplayName>Discovery McAfeeAgent Windows Services</DisplayName>
+        <Description>Discovers McAfeeAgent Windows Services</Description>
+        <DataSourceId>DS</DataSourceId>
+        <DataSourceConfig>&lt;NameSpace&gt;root\cimv2&lt;/NameSpace&gt;&lt;Query&gt;select * from win32_service where displayname like 'McAfee Agent%' OR displayname like 'McAfee Framework%'&lt;/Query&gt;&lt;Frequency&gt;14400&lt;/Frequency&gt;&lt;ClassId&gt;$MPElement[Name="GripLogix.McAfee.WindowsService.McAfeeAgent"]$&lt;/ClassId&gt;&lt;InstanceSettings&gt;&lt;Settings&gt;&lt;Setting&gt;&lt;Name&gt;$MPElement[Name="Windows!Microsoft.Windows.Computer"]/PrincipalName$&lt;/Name&gt;&lt;Value&gt;$Target/Host/Property[Type="Windows!Microsoft.Windows.Computer"]/PrincipalName$&lt;/Value&gt;&lt;/Setting&gt;&lt;Setting&gt;&lt;Name&gt;$MPElement[Name="GripLogix.McAfee.WindowsService.McAfeeAgent"]/ServiceName$&lt;/Name&gt;&lt;Value&gt;$Data/Property[@Name='Name']$&lt;/Value&gt;&lt;/Setting&gt;&lt;Setting&gt;&lt;Name&gt;$MPElement[Name="GripLogix.McAfee.WindowsService.McAfeeAgent"]/ServiceProcessName$&lt;/Name&gt;&lt;Value&gt;$Data/Property[@Name='PathName']$&lt;/Value&gt;&lt;/Setting&gt;&lt;Setting&gt;&lt;Name&gt;$MPElement[Name="System!System.Entity"]/DisplayName$&lt;/Name&gt;&lt;Value&gt;$Data/Property[@Name='DisplayName']$&lt;/Value&gt;&lt;/Setting&gt;&lt;/Settings&gt;&lt;/InstanceSettings&gt;</DataSourceConfig>
+        <DataSourceType>Windows!Microsoft.Windows.WmiProviderWithClassSnapshotDataMapper</DataSourceType>
+        <Target>GripLogix.McAfee.McAfeeAgent</Target>
+        <Enabled>true</Enabled>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <ConfirmDelivery>false</ConfirmDelivery>
+        <Category>Discovery</Category>
+        <DiscoveryClasses>
+          <DiscoveryClassItem>
+            <TypeId>GripLogix.McAfee.WindowsService.McAfeeAgent</TypeId>
+            <Properties />
+          </DiscoveryClassItem>
+        </DiscoveryClasses>
+        <DiscoveryRelationships />
+      </DiscoveryConfig>
+    </Instance>
+    <Instance ID="Instance9de3104419914d25a6baa00679d0f2bf" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.Discovery" Version="1.0.0.0">
+      <DiscoveryConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Id>Discovery.McAfeeAgent</Id>
+        <DisplayName>Discovery McAfeeAgent</DisplayName>
+        <Description>Discovers McAfeeAgent</Description>
+        <DataSourceId>DS</DataSourceId>
+        <DataSourceConfig>&lt;ComputerName&gt;$Target/Property[Type="Windows!Microsoft.Windows.Computer"]/PrincipalName$&lt;/ComputerName&gt;&lt;RegistryAttributeDefinitions&gt;&lt;RegistryAttributeDefinition&gt;&lt;AttributeName&gt;AppExists&lt;/AttributeName&gt;&lt;Path&gt;SOFTWARE\Wow6432Node\Network Associates\ePolicy Orchestrator\Agent&lt;/Path&gt;&lt;PathType&gt;0&lt;/PathType&gt;&lt;AttributeType&gt;0&lt;/AttributeType&gt;&lt;/RegistryAttributeDefinition&gt;&lt;RegistryAttributeDefinition&gt;&lt;AttributeName&gt;ePOServerList&lt;/AttributeName&gt;&lt;Path&gt;SOFTWARE\Wow6432Node\Network Associates\ePolicy Orchestrator\Agent\ePOServerList&lt;/Path&gt;&lt;PathType&gt;1&lt;/PathType&gt;&lt;AttributeType&gt;1&lt;/AttributeType&gt;&lt;/RegistryAttributeDefinition&gt;&lt;RegistryAttributeDefinition&gt;&lt;AttributeName&gt;Version&lt;/AttributeName&gt;&lt;Path&gt;SOFTWARE\Wow6432Node\Network Associates\ePolicy Orchestrator\Application Plugins\EPOAGENT3000\Version&lt;/Path&gt;&lt;PathType&gt;1&lt;/PathType&gt;&lt;AttributeType&gt;1&lt;/AttributeType&gt;&lt;/RegistryAttributeDefinition&gt;&lt;RegistryAttributeDefinition&gt;&lt;AttributeName&gt;InstalledPath&lt;/AttributeName&gt;&lt;Path&gt;SOFTWARE\Wow6432Node\Network Associates\ePolicy Orchestrator\Agent\Installed Path&lt;/Path&gt;&lt;PathType&gt;1&lt;/PathType&gt;&lt;AttributeType&gt;1&lt;/AttributeType&gt;&lt;/RegistryAttributeDefinition&gt;&lt;/RegistryAttributeDefinitions&gt;&lt;Frequency&gt;14400&lt;/Frequency&gt;&lt;ClassId&gt;$MPElement[Name="GripLogix.McAfee.McAfeeAgent"]$&lt;/ClassId&gt;&lt;InstanceSettings&gt;&lt;Settings&gt;&lt;Setting&gt;&lt;Name&gt;$MPElement[Name="Windows!Microsoft.Windows.Computer"]/PrincipalName$&lt;/Name&gt;&lt;Value&gt;$Target/Property[Type="Windows!Microsoft.Windows.Computer"]/PrincipalName$&lt;/Value&gt;&lt;/Setting&gt;&lt;Setting&gt;&lt;Name&gt;$MPElement[Name="GripLogix.McAfee.McAfeeAgent"]/ePOServerList$&lt;/Name&gt;&lt;Value&gt;$Data/Values/ePOServerList$&lt;/Value&gt;&lt;/Setting&gt;&lt;Setting&gt;&lt;Name&gt;$MPElement[Name="GripLogix.McAfee.McAfeeAgent"]/Version$&lt;/Name&gt;&lt;Value&gt;$Data/Values/Version$&lt;/Value&gt;&lt;/Setting&gt;&lt;Setting&gt;&lt;Name&gt;$MPElement[Name="GripLogix.McAfee.McAfeeAgent"]/InstalledPath$&lt;/Name&gt;&lt;Value&gt;$Data/Values/InstalledPath$&lt;/Value&gt;&lt;/Setting&gt;&lt;Setting&gt;&lt;Name&gt;$MPElement[Name="System!System.Entity"]/DisplayName$&lt;/Name&gt;&lt;Value&gt;$Target/Property[Type="Windows!Microsoft.Windows.Computer"]/PrincipalName$&lt;/Value&gt;&lt;/Setting&gt;&lt;Setting&gt;&lt;Name&gt;$MPElement[Name="GripLogix.McAfee.McAfeeAgent"]/Name$&lt;/Name&gt;&lt;Value&gt;McAfee Agent&lt;/Value&gt;&lt;/Setting&gt;&lt;/Settings&gt;&lt;/InstanceSettings&gt;&lt;Expression&gt;&lt;SimpleExpression&gt;&lt;ValueExpression&gt;&lt;XPathQuery Type="Boolean"&gt;Values/AppExists&lt;/XPathQuery&gt;&lt;/ValueExpression&gt;&lt;Operator&gt;Equal&lt;/Operator&gt;&lt;ValueExpression&gt;&lt;Value Type="Boolean"&gt;true&lt;/Value&gt;&lt;/ValueExpression&gt;&lt;/SimpleExpression&gt;&lt;/Expression&gt;</DataSourceConfig>
+        <DataSourceType>Windows!Microsoft.Windows.FilteredRegistryDiscoveryProvider</DataSourceType>
+        <Target>Windows!Microsoft.Windows.Computer</Target>
+        <Enabled>true</Enabled>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <ConfirmDelivery>false</ConfirmDelivery>
+        <Category>Discovery</Category>
+        <DiscoveryClasses>
+          <DiscoveryClassItem>
+            <TypeId>GripLogix.McAfee.McAfeeAgent</TypeId>
+            <Properties>
+              <DiscoveredTypeProperty>
+                <TypeId>GripLogix.McAfee.McAfeeAgent</TypeId>
+                <Property>ePOServerList</Property>
+              </DiscoveredTypeProperty>
+            </Properties>
+          </DiscoveryClassItem>
+        </DiscoveryClasses>
+        <DiscoveryRelationships />
+      </DiscoveryConfig>
+    </Instance>
+    <Instance ID="Instancec719b8803e1a408b990ccdfb1852acbd" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.Discovery" Version="1.0.0.0">
+      <DiscoveryConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <Id>Discovery.McAfeeEndPointSecurity.PSBased</Id>
+        <DisplayName>Discovery McAfeeEndPointSecurity (powershell based)</DisplayName>
+        <Description>Discovers McAfeeEndPointSecurity</Description>
+        <DataSourceId>DS</DataSourceId>
+        <DataSourceConfig>&lt;IntervalSeconds&gt;14400&lt;/IntervalSeconds&gt;&lt;ComputerName&gt;$Target/Property[Type="Windows!Microsoft.Windows.Computer"]/PrincipalName$&lt;/ComputerName&gt;&lt;InstanceType&gt;EndPointSecurity&lt;/InstanceType&gt;&lt;RegKeyPath&gt;HKLM:\\SOFTWARE\Wow6432Node\Network Associates\ePolicy Orchestrator\Application Plugins\ENDP_GS_*&lt;/RegKeyPath&gt;</DataSourceConfig>
+        <DataSourceType>GripLogix.McAfee.DataSource.Discovery.McAfeePSRegistryBasedDiscovery</DataSourceType>
+        <Target>Windows!Microsoft.Windows.Computer</Target>
+        <Enabled>true</Enabled>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <ConfirmDelivery>false</ConfirmDelivery>
+        <Category>Discovery</Category>
+        <DiscoveryClasses>
+          <DiscoveryClassItem>
+            <TypeId>GripLogix.McAfee.McAfeeEndPointSecurity</TypeId>
+            <Properties />
+          </DiscoveryClassItem>
+        </DiscoveryClasses>
+        <DiscoveryRelationships />
+      </DiscoveryConfig>
+    </Instance>
+    <Instance ID="Instancee026527d8ba0468b865d84594fdc256a" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.Discovery" Version="1.0.0.0">
+      <DiscoveryConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <Id>Discovery.McAfeeMcShield.PSBased</Id>
+        <DisplayName>Discovery McAfee McShield (powershell based)</DisplayName>
+        <Description>Discovers McAfee McShield</Description>
+        <DataSourceId>DS</DataSourceId>
+        <DataSourceConfig>&lt;IntervalSeconds&gt;14400&lt;/IntervalSeconds&gt;&lt;ComputerName&gt;$Target/Property[Type="Windows!Microsoft.Windows.Computer"]/PrincipalName$&lt;/ComputerName&gt;&lt;InstanceType&gt;McShield&lt;/InstanceType&gt;&lt;RegKeyPath&gt;HKLM:\\SOFTWARE\Wow6432Node\Network Associates\ePolicy Orchestrator\Application Plugins\VIRUSCAN*&lt;/RegKeyPath&gt;</DataSourceConfig>
+        <DataSourceType>GripLogix.McAfee.DataSource.Discovery.McAfeePSRegistryBasedDiscovery</DataSourceType>
+        <Target>Windows!Microsoft.Windows.Computer</Target>
+        <Enabled>true</Enabled>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <ConfirmDelivery>false</ConfirmDelivery>
+        <Category>Discovery</Category>
+        <DiscoveryClasses>
+          <DiscoveryClassItem>
+            <TypeId>GripLogix.McAfee.McAfeeMcShield</TypeId>
+            <Properties />
+          </DiscoveryClassItem>
+        </DiscoveryClasses>
+        <DiscoveryRelationships />
+      </DiscoveryConfig>
+    </Instance>
+  </Instances>
+</TemplateGroup>

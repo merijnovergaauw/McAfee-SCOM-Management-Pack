@@ -1,0 +1,99 @@
+﻿<ManagementPackFragment SchemaVersion="2.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <TypeDefinitions>
+    <ModuleTypes>
+      <!-- DataSource.PSRegCheckRegValue.PropertyBag -->
+      <DataSourceModuleType ID ="GripLogix.McAfee.DataSource.Condition.PSRegCheckRegValue.PropertyBag" Accessibility ="Internal">
+        <Configuration>
+          <xsd:element name="IntervalSeconds" type="xsd:integer" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+          <xsd:element name="SyncTime" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+          <xsd:element name="RegKeyPath" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+          <xsd:element name="RegValue" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+          <xsd:element name="Threshold" type="xsd:integer" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+          <xsd:element name="Debug" type="xsd:boolean" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+        </Configuration>
+        <OverrideableParameters>
+          <OverrideableParameter ID="IntervalSeconds" Selector="$Config/IntervalSeconds$" ParameterType="int" />
+          <OverrideableParameter ID="SyncTime" Selector="$Config/SyncTime$" ParameterType="string" />
+          <OverrideableParameter ID="RegKeyPath" Selector="$Config/RegKeyPath$" ParameterType="string" />
+          <OverrideableParameter ID="RegValue" Selector="$Config/RegValue$" ParameterType="string" />
+          <OverrideableParameter ID="Threshold" Selector="$Config/Threshold$" ParameterType="int" />
+          <OverrideableParameter ID="Debug" Selector="$Config/Debug$" ParameterType="bool"/>
+        </OverrideableParameters>
+        <ModuleImplementation>
+          <Composite>
+            <MemberModules>
+              <DataSource ID="Schedule" TypeID ="System!System.SimpleScheduler">
+                <IntervalSeconds>$Config/IntervalSeconds$</IntervalSeconds>
+                <SyncTime>$Config/SyncTime$</SyncTime>
+              </DataSource>
+              <ProbeAction ID="Script" TypeID ="GripLogix.McAfee.Probe.PSRegCheckRegValue">
+                <RegKeyPath>$Config/RegKeyPath$</RegKeyPath>
+                <RegValue>$Config/RegValue$</RegValue>
+                <Debug>$Config/Debug$</Debug>
+              </ProbeAction>
+              <ConditionDetection ID="CD" TypeID="System!System.ExpressionFilter">
+                <Expression>
+                  <SimpleExpression>
+                    <ValueExpression>
+                      <XPathQuery Type="Integer">Property[@Name='$Config/RegValue$']</XPathQuery>
+                    </ValueExpression>
+                    <Operator>Less</Operator>
+                    <ValueExpression>
+                      <Value Type="Integer">$Config/Threshold$</Value>
+                    </ValueExpression>
+                  </SimpleExpression>
+                </Expression>
+              </ConditionDetection>              
+            </MemberModules>
+            <Composition>
+              <Node ID="CD">
+                <Node ID ="Script">
+                  <Node ID ="Schedule" />
+                </Node>
+              </Node>
+            </Composition>
+          </Composite>
+        </ModuleImplementation>
+        <OutputType>System!System.PropertyBagData</OutputType>
+      </DataSourceModuleType>
+      <!-- Probe.PSRegCheckRegValue -->
+      <ProbeActionModuleType ID="GripLogix.McAfee.Probe.PSRegCheckRegValue" Accessibility="Internal">
+        <Configuration>
+          <xsd:element name="RegKeyPath" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+          <xsd:element name="RegValue" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+          <xsd:element name="Debug" type="xsd:boolean" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+        </Configuration>
+        <ModuleImplementation>
+          <Composite>
+            <MemberModules>
+              <ProbeAction ID="Script" TypeID="Windows!Microsoft.Windows.PowerShellPropertyBagTriggerOnlyProbe">
+                <ScriptName>McAfeeCheckRegValue.ps1</ScriptName>
+                <ScriptBody>$IncludeFileContent/Scripts/McAfeeCheckRegValue.ps1$</ScriptBody>
+                <Parameters>
+                  <Parameter>
+                    <Name>RegKeyPath</Name>
+                    <Value>$Config/RegKeyPath$</Value>
+                  </Parameter>
+                  <Parameter>
+                    <Name>RegValue</Name>
+                    <Value>$Config/RegValue$</Value>
+                  </Parameter>
+                  <Parameter>
+                    <Name>Debug</Name>
+                    <Value>$Config/Debug$</Value>
+                  </Parameter>
+                </Parameters>
+                <TimeoutSeconds>300</TimeoutSeconds>
+              </ProbeAction>
+            </MemberModules>
+            <Composition>
+              <Node ID ="Script"/>
+            </Composition>
+          </Composite>
+        </ModuleImplementation>
+        <OutputType>System!System.PropertyBagData</OutputType>
+        <TriggerOnly>true</TriggerOnly>
+      </ProbeActionModuleType>          
+    </ModuleTypes>
+  </TypeDefinitions>
+</ManagementPackFragment>

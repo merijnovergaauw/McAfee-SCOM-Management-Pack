@@ -1,0 +1,22 @@
+﻿<ManagementPackFragment SchemaVersion="2.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <TypeDefinitions>
+    <EntityTypes>
+      <RelationshipTypes> 
+        <RelationshipType ID="GripLogix.McAfee.Relationship.McAfeeAgentHandlerHostsMcAfeeWindowsService" Base="System!System.Hosting" Abstract="false" Accessibility="Public">
+          <Source ID="Source" Type="GripLogix.McAfee.McAfeeAgentHandler"/>
+          <Target ID="Target" Type="GripLogix.McAfee.WindowsService.McAfeeAgentHandler"/>
+        </RelationshipType>
+      </RelationshipTypes> 
+    </EntityTypes>
+  </TypeDefinitions>
+  <LanguagePacks>
+    <LanguagePack ID="ENU" IsDefault="true">
+      <DisplayStrings>
+        <DisplayString ElementID="GripLogix.McAfee.Relationship.McAfeeAgentHandlerHostsMcAfeeWindowsService">
+          <Name>McAfee Agent Handler hosts McAfee Windows Services Relationship</Name>
+          <Description></Description>
+        </DisplayString>
+      </DisplayStrings>
+    </LanguagePack>
+  </LanguagePacks>
+</ManagementPackFragment>

@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <ProjectGuid>{f3e1687b-5354-496f-bbfc-d05e3ccdea34}</ProjectGuid>
+    <RootNamespace>GripLogix.McAfee.Monitoring</RootNamespace>
+    <Name>McAfee.Monitoring</Name>
+    <ManagementPackName>GripLogix.McAfee.Monitoring</ManagementPackName>
+    <Version>1.0.0.212</Version>
+    <MpFrameworkVersion>v7.0.2</MpFrameworkVersion>
+    <MpFrameworkProfile>OM</MpFrameworkProfile>
+    <ProductVersion>1.1.0.0</ProductVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <GenerateSealed>True</GenerateSealed>
+    <Company>GripLogix</Company>
+    <Copyright>Community</Copyright>
+    <DelaySigning>False</DelaySigning>
+    <AssemblyOriginatorKeyFile>..\GripLogix.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>false</DebugSymbols>
+    <OutputPath>bin\Release\</OutputPath>
+    <DelaySigning>false</DelaySigning>
+    <Company>MyCompany</Company>
+    <Copyright>Copyright (c) MyCompany. All rights reserved.</Copyright>
+    <DelaySign>false</DelaySign>
+    <AssemblyOriginatorKeyFile />
+  </PropertyGroup>
+  <ItemGroup>
+    <ManagementPackReference Include="Microsoft.SystemCenter.Library">
+      <Alias>SC</Alias>
+      <PackageToBundle>False</PackageToBundle>
+    </ManagementPackReference>
+    <ManagementPackReference Include="Microsoft.Windows.Library">
+      <Alias>Windows</Alias>
+      <PackageToBundle>False</PackageToBundle>
+    </ManagementPackReference>
+    <ManagementPackReference Include="System.Health.Library">
+      <Alias>Health</Alias>
+      <PackageToBundle>False</PackageToBundle>
+    </ManagementPackReference>
+    <ManagementPackReference Include="System.Library">
+      <Alias>System</Alias>
+      <PackageToBundle>False</PackageToBundle>
+    </ManagementPackReference>
+    <ManagementPackReference Include="Microsoft.SystemCenter.Visualization.Library">
+      <Alias>Visualization</Alias>
+      <PackageToBundle>False</PackageToBundle>
+    </ManagementPackReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Monitors" />
+    <Folder Include="Module Types" />
+    <Folder Include="Scripts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Monitors\HealthRollups.mptg">
+      <SubType>Content</SubType>
+      <Generator>FragmentGenerator</Generator>
+    </Content>
+    <Content Include="Monitors\Monitors.mptg">
+      <SubType>Content</SubType>
+      <Generator>FragmentGenerator</Generator>
+    </Content>
+    <Content Include="Monitors\Rules.mptg">
+      <SubType>Content</SubType>
+      <Generator>FragmentGenerator</Generator>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ManagementPack.mpx">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Module Types\DataSourceType.Condition.PSRegCheckRegValue.mpx">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Module Types\MonitorType.PSRegCheckRegValue.TimeStamp.mpx">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Module Types\DataSourceType.RegCheckRegValue.mpx">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Module Types\MonitorType.PSCheckWebPage.mpx">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Monitors\DisplayStrings.mpx">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Monitors\HealthRollups.mptg.mpx">
+      <SubType>Code</SubType>
+      <DependentUpon>Monitors\HealthRollups.mptg</DependentUpon>
+    </Compile>
+    <Compile Include="Monitors\Monitors.mptg.mpx">
+      <SubType>Code</SubType>
+      <DependentUpon>Monitors\Monitors.mptg</DependentUpon>
+    </Compile>
+    <Compile Include="Monitors\Rules.mptg.mpx">
+      <SubType>Code</SubType>
+      <DependentUpon>Monitors\Rules.mptg</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Scripts\McAfeeCheckRegValue.ps1" />
+    <EmbeddedResource Include="Scripts\McAfeeCheckRegValue.TimeStamp.ps1" />
+    <EmbeddedResource Include="Scripts\McAfeeePolicyUrlCheck.ps1" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GripLogix.McAfee.Discovery\McAfee.Discovery.mpproj">
+      <Name>McAfee.Discovery</Name>
+      <Project>{469af6dc-5c68-4829-a46a-3f7a89ca4721}</Project>
+      <Private>True</Private>
+      <Alias>GripLogix</Alias>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VSAC\Microsoft.SystemCenter.OperationsManager.targets" />
+</Project>

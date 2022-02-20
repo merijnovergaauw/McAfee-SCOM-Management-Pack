@@ -1,0 +1,41 @@
+<TemplateGroup>
+  <Instances>
+    <Instance ID="Instanceaa18b5b9718143958649f4c4d958985f" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.UnitMonitor" Version="1.0.0.0">
+      <UnitMonitorConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <MonitorType>GripLogix.McAfee.MonitorType.RegCheckRegistryValue</MonitorType>
+        <MonitorConfig>&lt;IntervalSeconds&gt;14400&lt;/IntervalSeconds&gt;&lt;ComputerName&gt;$Target/Host/Property[Type="Windows!Microsoft.Windows.Computer"]/PrincipalName$&lt;/ComputerName&gt;&lt;RegValuePath&gt;SOFTWARE\Wow6432Node\Network Associates\ePolicy Orchestrator\Application Plugins\VIRUSCAN8800\HotfixVersions&lt;/RegValuePath&gt;&lt;DesiredRegValue&gt;9&lt;/DesiredRegValue&gt;</MonitorConfig>
+        <MonitorOperationalStates>
+          <OperationalState>
+            <OperationalStateId>Match</OperationalStateId>
+            <OperationalStateDisplayName>Match</OperationalStateDisplayName>
+            <MonitorTypeStateId>Match</MonitorTypeStateId>
+            <HealthState>Success</HealthState>
+          </OperationalState>
+          <OperationalState>
+            <OperationalStateId>NoMatch</OperationalStateId>
+            <OperationalStateDisplayName>NoMatch</OperationalStateDisplayName>
+            <MonitorTypeStateId>NoMatch</MonitorTypeStateId>
+            <HealthState>Error</HealthState>
+          </OperationalState>
+        </MonitorOperationalStates>
+        <ParentMonitor>Health!System.Health.ConfigurationState</ParentMonitor>
+        <Accessibility>Internal</Accessibility>
+        <Id>Monitor.HotfixVersion.McShield</Id>
+        <DisplayName>Monitor McShield Hotfix Version</DisplayName>
+        <Description>Monitors McShield Hotfix Version.</Description>
+        <Target>GripLogix!GripLogix.McAfee.McAfeeMcShield</Target>
+        <Enabled>true</Enabled>
+        <Category>ConfigurationHealth</Category>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <AlertAutoResolve>true</AlertAutoResolve>
+        <AlertOnState>Error</AlertOnState>
+        <AlertPriority>Normal</AlertPriority>
+        <AlertSeverity>MatchMonitorHealth</AlertSeverity>
+        <AlertName>Hofix Version is not up to date</AlertName>
+        <AlertDescription>Hofix Version is not up to date. Check Health Explorer for more details.</AlertDescription>
+        <ConfirmDelivery>false</ConfirmDelivery>
+      </UnitMonitorConfig>
+    </Instance>
+  </Instances>
+</TemplateGroup>

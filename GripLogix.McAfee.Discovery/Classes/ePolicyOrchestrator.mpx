@@ -1,0 +1,45 @@
+﻿<ManagementPackFragment SchemaVersion="2.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <TypeDefinitions>
+    <EntityTypes>
+      <ClassTypes>
+        <ClassType ID="GripLogix.McAfee.ePolicyOrchestrator" Base="Windows!Microsoft.Windows.ComputerRole" Accessibility="Public" Abstract="false" Hosted="true" Singleton="false">
+          <Property ID="Name" Key="false" Type="string" />          
+          <Property ID="InstalledPath" Key="false" Type="string" />
+          <Property ID="Version" Key="false" Type="string" />
+          <Property ID="Database" Key="false" Type="string" />
+          <Property ID="DatabaseServer" Key="false" Type="string" />
+        </ClassType>
+      </ClassTypes>
+    </EntityTypes>
+  </TypeDefinitions>
+  <LanguagePacks>
+    <LanguagePack ID="ENU" IsDefault="true">
+      <DisplayStrings>
+        <DisplayString ElementID="GripLogix.McAfee.ePolicyOrchestrator">
+          <Name>McAfee ePolicy Orchestrator</Name>
+          <Description></Description>
+        </DisplayString>
+        <DisplayString ElementID="GripLogix.McAfee.ePolicyOrchestrator" SubElementID="Name">
+          <Name>Name</Name>
+          <Description></Description>
+        </DisplayString>
+        <DisplayString ElementID="GripLogix.McAfee.ePolicyOrchestrator" SubElementID="InstalledPath">
+          <Name>Installed Path</Name>
+          <Description></Description>
+        </DisplayString>
+        <DisplayString ElementID="GripLogix.McAfee.ePolicyOrchestrator" SubElementID="Version">
+          <Name>Version</Name>
+          <Description></Description>
+        </DisplayString>
+        <DisplayString ElementID="GripLogix.McAfee.ePolicyOrchestrator" SubElementID="Database">
+          <Name>Database</Name>
+          <Description></Description>
+        </DisplayString>
+        <DisplayString ElementID="GripLogix.McAfee.ePolicyOrchestrator" SubElementID="DatabaseServer">
+          <Name>Database Server</Name>
+          <Description></Description>
+        </DisplayString>
+      </DisplayStrings>
+    </LanguagePack>
+  </LanguagePacks>
+</ManagementPackFragment>

@@ -1,0 +1,22 @@
+﻿<ManagementPackFragment SchemaVersion="2.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <TypeDefinitions>
+    <EntityTypes>
+      <RelationshipTypes> 
+        <RelationshipType ID="GripLogix.McAfee.Relationship.McAfeeEndPointSecurityHostsMcAfeeWindowsService" Base="System!System.Hosting" Abstract="false" Accessibility="Public">
+          <Source ID="Source" Type="GripLogix.McAfee.McAfeeEndPointSecurity"/>
+          <Target ID="Target" Type="GripLogix.McAfee.WindowsService.McAfeeEndPointSecurity"/>
+        </RelationshipType>
+      </RelationshipTypes> 
+    </EntityTypes>
+  </TypeDefinitions>
+  <LanguagePacks>
+    <LanguagePack ID="ENU" IsDefault="true">
+      <DisplayStrings>
+        <DisplayString ElementID="GripLogix.McAfee.Relationship.McAfeeEndPointSecurityHostsMcAfeeWindowsService">
+          <Name>McAfee EndPoint Security hosts McAfee Windows Services Relationship</Name>
+          <Description></Description>
+        </DisplayString>
+      </DisplayStrings>
+    </LanguagePack>
+  </LanguagePacks>
+</ManagementPackFragment>

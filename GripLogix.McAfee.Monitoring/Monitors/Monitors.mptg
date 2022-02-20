@@ -1,0 +1,440 @@
+<TemplateGroup>
+  <Instances>
+    <Instance ID="Instance29a16e8a3a4246699af1da4936c1054d" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.UnitMonitor" Version="1.0.0.0">
+      <UnitMonitorConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <MonitorType>GripLogix.McAfee.MonitorType.PSRegCheckRegValue.TimeStamp</MonitorType>
+        <MonitorConfig>&lt;IntervalSeconds&gt;14400&lt;/IntervalSeconds&gt;&lt;SyncTime /&gt;&lt;RegKeyPath&gt;HKLM:\\SOFTWARE\Wow6432Node\Network Associates\ePolicy Orchestrator\Agent&lt;/RegKeyPath&gt;&lt;RegValue&gt;LastPolicyUpdateTime&lt;/RegValue&gt;&lt;TimeStampType&gt;epoch&lt;/TimeStampType&gt;&lt;Threshold&gt;5&lt;/Threshold&gt;&lt;Debug&gt;true&lt;/Debug&gt;</MonitorConfig>
+        <MonitorOperationalStates>
+          <OperationalState>
+            <OperationalStateId>OverThreshold</OperationalStateId>
+            <OperationalStateDisplayName>OverThreshold</OperationalStateDisplayName>
+            <MonitorTypeStateId>OverThreshold</MonitorTypeStateId>
+            <HealthState>Error</HealthState>
+          </OperationalState>
+          <OperationalState>
+            <OperationalStateId>UnderThreshold</OperationalStateId>
+            <OperationalStateDisplayName>UnderThreshold</OperationalStateDisplayName>
+            <MonitorTypeStateId>UnderThreshold</MonitorTypeStateId>
+            <HealthState>Success</HealthState>
+          </OperationalState>
+        </MonitorOperationalStates>
+        <ParentMonitor>Health!System.Health.ConfigurationState</ParentMonitor>
+        <Accessibility>Internal</Accessibility>
+        <Id>Monitor.LastPolicyUpdateTime.McAfeeEndPointSecurity</Id>
+        <DisplayName>McAfee Last Policy Update Time Monitor</DisplayName>
+        <Description>Monitors last Policy Update Date/Time.</Description>
+        <Target>GripLogix!GripLogix.McAfee.McAfeeEndPointSecurity</Target>
+        <Enabled>true</Enabled>
+        <Category>AvailabilityHealth</Category>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <AlertAutoResolve>true</AlertAutoResolve>
+        <AlertOnState>Error</AlertOnState>
+        <AlertPriority>Normal</AlertPriority>
+        <AlertSeverity>MatchMonitorHealth</AlertSeverity>
+        <AlertName>Last Policy Update Time too old. It has been {0} days ago since the last update. The maximum number of days allowed is {2}.</AlertName>
+        <AlertDescription>Last Policy Update Time too old.
+It has been $Data/Context/Property[@Name='DaysOld']$ days ago since the last update.
+Last Policy Update Time: $Data/Context/Property[@Name='TimeStampDate']$
+Max number of days old threshold is: $Data/Context/Property[@Name='Threshold']$
+Please check health explorer too get more details.</AlertDescription>
+        <ConfirmDelivery>false</ConfirmDelivery>
+      </UnitMonitorConfig>
+    </Instance>
+    <Instance ID="Instance4d7288032dd1493d8f6e3fa7e22407e0" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.UnitMonitor" Version="1.0.0.0">
+      <UnitMonitorConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <MonitorType>GripLogix.McAfee.MonitorType.PSRegCheckRegValue.TimeStamp</MonitorType>
+        <MonitorConfig>&lt;IntervalSeconds&gt;14400&lt;/IntervalSeconds&gt;&lt;SyncTime /&gt;&lt;RegKeyPath&gt;HKLM:\\SOFTWARE\Wow6432Node\Network Associates\ePolicy Orchestrator\Application Plugins\VIRUSCAN*&lt;/RegKeyPath&gt;&lt;RegValue&gt;DatInstallDate&lt;/RegValue&gt;&lt;TimeStampType&gt;humanDateTimeWithoutSeparators&lt;/TimeStampType&gt;&lt;Threshold&gt;5&lt;/Threshold&gt;&lt;Debug&gt;true&lt;/Debug&gt;</MonitorConfig>
+        <MonitorOperationalStates>
+          <OperationalState>
+            <OperationalStateId>OverThreshold</OperationalStateId>
+            <OperationalStateDisplayName>OverThreshold</OperationalStateDisplayName>
+            <MonitorTypeStateId>OverThreshold</MonitorTypeStateId>
+            <HealthState>Error</HealthState>
+          </OperationalState>
+          <OperationalState>
+            <OperationalStateId>UnderThreshold</OperationalStateId>
+            <OperationalStateDisplayName>UnderThreshold</OperationalStateDisplayName>
+            <MonitorTypeStateId>UnderThreshold</MonitorTypeStateId>
+            <HealthState>Success</HealthState>
+          </OperationalState>
+        </MonitorOperationalStates>
+        <ParentMonitor>Health!System.Health.ConfigurationState</ParentMonitor>
+        <Accessibility>Internal</Accessibility>
+        <Id>Monitor.DatInstallDate.McAfeeMcShield</Id>
+        <DisplayName>McAfee Dat Install Date Expiration</DisplayName>
+        <Description>Monitors the Dat Install Date Expiration.</Description>
+        <Target>GripLogix!GripLogix.McAfee.McAfeeMcShield</Target>
+        <Enabled>true</Enabled>
+        <Category>AvailabilityHealth</Category>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <AlertAutoResolve>true</AlertAutoResolve>
+        <AlertOnState>Error</AlertOnState>
+        <AlertPriority>Normal</AlertPriority>
+        <AlertSeverity>MatchMonitorHealth</AlertSeverity>
+        <AlertName>Dat Install Date is too old. It has been {0} days ago since the last update. The maximum number of days allowed is {2}.</AlertName>
+        <AlertDescription>Dat Install Date is too old. 
+It has been $Data/Context/Property[@Name='DaysOld']$ days ago since the last update.
+Dat Install Date: $Data/Context/Property[@Name='TimeStampDate']$
+Max number of days old threshold is: $Data/Context/Property[@Name='Threshold']$
+Please check health explorer too get more details.</AlertDescription>
+        <ConfirmDelivery>false</ConfirmDelivery>
+      </UnitMonitorConfig>
+    </Instance>
+    <Instance ID="Instance47c81e5a21fe44a68ff79a960e3b6560" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.UnitMonitor" Version="1.0.0.0">
+      <UnitMonitorConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <MonitorType>GripLogix.McAfee.MonitorType.PSRegCheckRegValue.TimeStamp</MonitorType>
+        <MonitorConfig>&lt;IntervalSeconds&gt;14400&lt;/IntervalSeconds&gt;&lt;SyncTime /&gt;&lt;RegKeyPath&gt;HKLM:\\SOFTWARE\Wow6432Node\Network Associates\ePolicy Orchestrator\Agent&lt;/RegKeyPath&gt;&lt;RegValue&gt;LastASCTime&lt;/RegValue&gt;&lt;TimeStampType&gt;epoch&lt;/TimeStampType&gt;&lt;Threshold&gt;5&lt;/Threshold&gt;&lt;Debug&gt;true&lt;/Debug&gt;</MonitorConfig>
+        <MonitorOperationalStates>
+          <OperationalState>
+            <OperationalStateId>OverThreshold</OperationalStateId>
+            <OperationalStateDisplayName>OverThreshold</OperationalStateDisplayName>
+            <MonitorTypeStateId>OverThreshold</MonitorTypeStateId>
+            <HealthState>Error</HealthState>
+          </OperationalState>
+          <OperationalState>
+            <OperationalStateId>UnderThreshold</OperationalStateId>
+            <OperationalStateDisplayName>UnderThreshold</OperationalStateDisplayName>
+            <MonitorTypeStateId>UnderThreshold</MonitorTypeStateId>
+            <HealthState>Success</HealthState>
+          </OperationalState>
+        </MonitorOperationalStates>
+        <ParentMonitor>Health!System.Health.ConfigurationState</ParentMonitor>
+        <Accessibility>Internal</Accessibility>
+        <Id>Monitor.LastASCTime.McAfeeEndPointSecurity</Id>
+        <DisplayName>McAfee Last Agent To Server Communication Monitor</DisplayName>
+        <Description>Monitors last Agent to Server Communication Date/Time.</Description>
+        <Target>GripLogix!GripLogix.McAfee.McAfeeEndPointSecurity</Target>
+        <Enabled>true</Enabled>
+        <Category>AvailabilityHealth</Category>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <AlertAutoResolve>true</AlertAutoResolve>
+        <AlertOnState>Error</AlertOnState>
+        <AlertPriority>Normal</AlertPriority>
+        <AlertSeverity>MatchMonitorHealth</AlertSeverity>
+        <AlertName>Last Agent to Server Communication Date/Time too old. It has been {0} days ago since the last update. The maximum number of days allowed is {2}.</AlertName>
+        <AlertDescription>Last Agent to Server Communication Date too old.
+It has been $Data/Context/Property[@Name='DaysOld']$ days ago since the last update.
+Last Agent to Server Communication Date: $Data/Context/Property[@Name='TimeStampDate']$
+Max number of days old threshold is: $Data/Context/Property[@Name='Threshold']$
+Please check health explorer too get more details.</AlertDescription>
+        <ConfirmDelivery>false</ConfirmDelivery>
+      </UnitMonitorConfig>
+    </Instance>
+    <Instance ID="Instanceee50e197811e478dbb3437d542116fd3" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.UnitMonitor" Version="1.0.0.0">
+      <UnitMonitorConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <MonitorType>GripLogix.McAfee.MonitorType.PSRegCheckRegValue.TimeStamp</MonitorType>
+        <MonitorConfig>&lt;IntervalSeconds&gt;14400&lt;/IntervalSeconds&gt;&lt;SyncTime /&gt;&lt;RegKeyPath&gt;HKLM:\\SOFTWARE\Wow6432Node\McAfee\AVSolution\DS\DS\&lt;/RegKeyPath&gt;&lt;RegValue&gt;szContentCreationDate&lt;/RegValue&gt;&lt;TimeStampType&gt;humanDateWithSeparators&lt;/TimeStampType&gt;&lt;Threshold&gt;5&lt;/Threshold&gt;&lt;Debug&gt;false&lt;/Debug&gt;</MonitorConfig>
+        <MonitorOperationalStates>
+          <OperationalState>
+            <OperationalStateId>OverThreshold</OperationalStateId>
+            <OperationalStateDisplayName>OverThreshold</OperationalStateDisplayName>
+            <MonitorTypeStateId>OverThreshold</MonitorTypeStateId>
+            <HealthState>Error</HealthState>
+          </OperationalState>
+          <OperationalState>
+            <OperationalStateId>UnderThreshold</OperationalStateId>
+            <OperationalStateDisplayName>UnderThreshold</OperationalStateDisplayName>
+            <MonitorTypeStateId>UnderThreshold</MonitorTypeStateId>
+            <HealthState>Success</HealthState>
+          </OperationalState>
+        </MonitorOperationalStates>
+        <ParentMonitor>Health!System.Health.ConfigurationState</ParentMonitor>
+        <Accessibility>Internal</Accessibility>
+        <Id>Monitor.AMCoreContentDate.McAfeeThreadPrevention</Id>
+        <DisplayName>McAfee AM Core Content Date</DisplayName>
+        <Description>Monitors AM Core Content Date.</Description>
+        <Target>GripLogix!GripLogix.McAfee.McAfeeThreadPrevention</Target>
+        <Enabled>true</Enabled>
+        <Category>ConfigurationHealth</Category>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <AlertAutoResolve>true</AlertAutoResolve>
+        <AlertOnState>Error</AlertOnState>
+        <AlertPriority>Normal</AlertPriority>
+        <AlertSeverity>MatchMonitorHealth</AlertSeverity>
+        <AlertName>AM Core Content Date is too old. It has been {0} days ago since the last update. The maximum number of days allowed is {2}.</AlertName>
+        <AlertDescription>AM Core Content Date is too old. 
+It has been $Data/Context/Property[@Name='DaysOld']$ days ago since the last update.
+AM Core Content Date: $Data/Context/Property[@Name='TimeStampDate']$
+Max number of days old threshold is: $Data/Context/Property[@Name='Threshold']$
+Please check health explorer too get more details.</AlertDescription>
+        <ConfirmDelivery>false</ConfirmDelivery>
+      </UnitMonitorConfig>
+    </Instance>
+    <Instance ID="Instance10189bce1d9647a6b032deb25d54a245" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.UnitMonitor" Version="1.0.0.0">
+      <UnitMonitorConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <MonitorType>Windows!Microsoft.Windows.CheckNTServiceStateMonitorType</MonitorType>
+        <MonitorConfig>&lt;ComputerName&gt;$Target/Host/Host/Property[Type="Windows!Microsoft.Windows.Computer"]/PrincipalName$&lt;/ComputerName&gt;&lt;ServiceName&gt;$Target/Property[Type="GripLogix!GripLogix.McAfee.WindowsService.McAfeeEpolicyOrchestrator"]/ServiceName$&lt;/ServiceName&gt;&lt;CheckStartupType&gt;true&lt;/CheckStartupType&gt;</MonitorConfig>
+        <MonitorOperationalStates>
+          <OperationalState>
+            <OperationalStateId>Running</OperationalStateId>
+            <OperationalStateDisplayName>Running</OperationalStateDisplayName>
+            <MonitorTypeStateId>Running</MonitorTypeStateId>
+            <HealthState>Success</HealthState>
+          </OperationalState>
+          <OperationalState>
+            <OperationalStateId>NotRunning</OperationalStateId>
+            <OperationalStateDisplayName>NotRunning</OperationalStateDisplayName>
+            <MonitorTypeStateId>NotRunning</MonitorTypeStateId>
+            <HealthState>Error</HealthState>
+          </OperationalState>
+        </MonitorOperationalStates>
+        <ParentMonitor>Health!System.Health.AvailabilityState</ParentMonitor>
+        <Accessibility>Internal</Accessibility>
+        <Id>Monitor.WindowsService.McAfeeEpolicyOrchestrator</Id>
+        <DisplayName>McAfee ePolicyOrchestrator Windows Service Monitor</DisplayName>
+        <Description>McAfee ePolicyOrchestrator Windows Service Monitor.</Description>
+        <Target>GripLogix!GripLogix.McAfee.WindowsService.McAfeeEpolicyOrchestrator</Target>
+        <Enabled>true</Enabled>
+        <Category>AvailabilityHealth</Category>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <AlertAutoResolve>true</AlertAutoResolve>
+        <AlertOnState>Error</AlertOnState>
+        <AlertPriority>Normal</AlertPriority>
+        <AlertSeverity>MatchMonitorHealth</AlertSeverity>
+        <AlertName>McAfee Windows Service stopped: {0} </AlertName>
+        <AlertDescription>McAfee Windows Service stopped: 
+$Data/Context/Property[@Name='DisplayName']$
+Check Health Explorer for more details.</AlertDescription>
+        <ConfirmDelivery>false</ConfirmDelivery>
+      </UnitMonitorConfig>
+    </Instance>
+    <Instance ID="Instance22da4d732ae14aa69b234d5281d1aa5a" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.UnitMonitor" Version="1.0.0.0">
+      <UnitMonitorConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <MonitorType>Windows!Microsoft.Windows.CheckNTServiceStateMonitorType</MonitorType>
+        <MonitorConfig>&lt;ComputerName&gt;$Target/Host/Host/Property[Type="Windows!Microsoft.Windows.Computer"]/PrincipalName$&lt;/ComputerName&gt;&lt;ServiceName&gt;$Target/Property[Type="GripLogix!GripLogix.McAfee.WindowsService.McAfeeMcShield"]/ServiceName$&lt;/ServiceName&gt;&lt;CheckStartupType&gt;true&lt;/CheckStartupType&gt;</MonitorConfig>
+        <MonitorOperationalStates>
+          <OperationalState>
+            <OperationalStateId>Running</OperationalStateId>
+            <OperationalStateDisplayName>Running</OperationalStateDisplayName>
+            <MonitorTypeStateId>Running</MonitorTypeStateId>
+            <HealthState>Success</HealthState>
+          </OperationalState>
+          <OperationalState>
+            <OperationalStateId>NotRunning</OperationalStateId>
+            <OperationalStateDisplayName>NotRunning</OperationalStateDisplayName>
+            <MonitorTypeStateId>NotRunning</MonitorTypeStateId>
+            <HealthState>Error</HealthState>
+          </OperationalState>
+        </MonitorOperationalStates>
+        <ParentMonitor>Health!System.Health.AvailabilityState</ParentMonitor>
+        <Accessibility>Internal</Accessibility>
+        <Id>Monitor.WindowsService.McAfeeMcShield</Id>
+        <DisplayName>McAfee McShield Windows Service Monitor</DisplayName>
+        <Description>McAfee McShield Windows Service Monitor.</Description>
+        <Target>GripLogix!GripLogix.McAfee.WindowsService.McAfeeMcShield</Target>
+        <Enabled>true</Enabled>
+        <Category>AvailabilityHealth</Category>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <AlertAutoResolve>true</AlertAutoResolve>
+        <AlertOnState>Error</AlertOnState>
+        <AlertPriority>Normal</AlertPriority>
+        <AlertSeverity>MatchMonitorHealth</AlertSeverity>
+        <AlertName>McAfee Windows Service stopped: {0} </AlertName>
+        <AlertDescription>McAfee Windows Service stopped: 
+$Data/Context/Property[@Name='DisplayName']$
+Check Health Explorer for more details.</AlertDescription>
+        <ConfirmDelivery>false</ConfirmDelivery>
+      </UnitMonitorConfig>
+    </Instance>
+    <Instance ID="Instance53435ffdb362499d8e5b235ec4a7dd2b" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.UnitMonitor" Version="1.0.0.0">
+      <UnitMonitorConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <MonitorType>Windows!Microsoft.Windows.CheckNTServiceStateMonitorType</MonitorType>
+        <MonitorConfig>&lt;ComputerName&gt;$Target/Host/Host/Property[Type="Windows!Microsoft.Windows.Computer"]/PrincipalName$&lt;/ComputerName&gt;&lt;ServiceName&gt;$Target/Property[Type="GripLogix!GripLogix.McAfee.WindowsService.McAfeeAgentHandler"]/ServiceName$&lt;/ServiceName&gt;&lt;CheckStartupType&gt;true&lt;/CheckStartupType&gt;</MonitorConfig>
+        <MonitorOperationalStates>
+          <OperationalState>
+            <OperationalStateId>Running</OperationalStateId>
+            <OperationalStateDisplayName>Running</OperationalStateDisplayName>
+            <MonitorTypeStateId>Running</MonitorTypeStateId>
+            <HealthState>Success</HealthState>
+          </OperationalState>
+          <OperationalState>
+            <OperationalStateId>NotRunning</OperationalStateId>
+            <OperationalStateDisplayName>NotRunning</OperationalStateDisplayName>
+            <MonitorTypeStateId>NotRunning</MonitorTypeStateId>
+            <HealthState>Error</HealthState>
+          </OperationalState>
+        </MonitorOperationalStates>
+        <ParentMonitor>Health!System.Health.AvailabilityState</ParentMonitor>
+        <Accessibility>Internal</Accessibility>
+        <Id>Monitor.WindowsService.McAfeeAgentHandler</Id>
+        <DisplayName>McAfee Agent Handler Windows Service Monitor</DisplayName>
+        <Description>McAfee Agent Handler Windows Service Monitor.</Description>
+        <Target>GripLogix!GripLogix.McAfee.WindowsService.McAfeeAgentHandler</Target>
+        <Enabled>true</Enabled>
+        <Category>AvailabilityHealth</Category>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <AlertAutoResolve>true</AlertAutoResolve>
+        <AlertOnState>Error</AlertOnState>
+        <AlertPriority>Normal</AlertPriority>
+        <AlertSeverity>MatchMonitorHealth</AlertSeverity>
+        <AlertName>McAfee Windows Service stopped: {0} </AlertName>
+        <AlertDescription>McAfee Windows Service stopped: 
+$Data/Context/Property[@Name='DisplayName']$
+Check Health Explorer for more details.</AlertDescription>
+        <ConfirmDelivery>false</ConfirmDelivery>
+      </UnitMonitorConfig>
+    </Instance>
+    <Instance ID="Instance8008580343f44736b2e588df2efa53cc" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.UnitMonitor" Version="1.0.0.0">
+      <UnitMonitorConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <MonitorType>Windows!Microsoft.Windows.CheckNTServiceStateMonitorType</MonitorType>
+        <MonitorConfig>&lt;ComputerName&gt;$Target/Host/Host/Property[Type="Windows!Microsoft.Windows.Computer"]/PrincipalName$&lt;/ComputerName&gt;&lt;ServiceName&gt;$Target/Property[Type="GripLogix!GripLogix.McAfee.WindowsService.McAfeeMoveAgentless"]/ServiceName$&lt;/ServiceName&gt;&lt;CheckStartupType&gt;true&lt;/CheckStartupType&gt;</MonitorConfig>
+        <MonitorOperationalStates>
+          <OperationalState>
+            <OperationalStateId>Running</OperationalStateId>
+            <OperationalStateDisplayName>Running</OperationalStateDisplayName>
+            <MonitorTypeStateId>Running</MonitorTypeStateId>
+            <HealthState>Success</HealthState>
+          </OperationalState>
+          <OperationalState>
+            <OperationalStateId>NotRunning</OperationalStateId>
+            <OperationalStateDisplayName>NotRunning</OperationalStateDisplayName>
+            <MonitorTypeStateId>NotRunning</MonitorTypeStateId>
+            <HealthState>Error</HealthState>
+          </OperationalState>
+        </MonitorOperationalStates>
+        <ParentMonitor>Health!System.Health.AvailabilityState</ParentMonitor>
+        <Accessibility>Internal</Accessibility>
+        <Id>Monitor.WindowsService.McAfeeMoveAgentless</Id>
+        <DisplayName>McAfee Move Agentless Windows Service Monitor</DisplayName>
+        <Description>McAfee Move Agentless Windows Service Monitor.</Description>
+        <Target>GripLogix!GripLogix.McAfee.WindowsService.McAfeeMoveAgentless</Target>
+        <Enabled>true</Enabled>
+        <Category>AvailabilityHealth</Category>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <AlertAutoResolve>true</AlertAutoResolve>
+        <AlertOnState>Error</AlertOnState>
+        <AlertPriority>Normal</AlertPriority>
+        <AlertSeverity>MatchMonitorHealth</AlertSeverity>
+        <AlertName>McAfee Windows Service stopped: {0} </AlertName>
+        <AlertDescription>McAfee Windows Service stopped: 
+$Data/Context/Property[@Name='DisplayName']$
+Check Health Explorer for more details.</AlertDescription>
+        <ConfirmDelivery>false</ConfirmDelivery>
+      </UnitMonitorConfig>
+    </Instance>
+    <Instance ID="Instanceb4ff2fe9ce7b4f7bb8ed45e728ddb818" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.UnitMonitor" Version="1.0.0.0">
+      <UnitMonitorConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <MonitorType>Windows!Microsoft.Windows.CheckNTServiceStateMonitorType</MonitorType>
+        <MonitorConfig>&lt;ComputerName&gt;$Target/Host/Host/Property[Type="Windows!Microsoft.Windows.Computer"]/PrincipalName$&lt;/ComputerName&gt;&lt;ServiceName&gt;$Target/Property[Type="GripLogix!GripLogix.McAfee.WindowsService.McAfeeEndPointSecurity"]/ServiceName$&lt;/ServiceName&gt;&lt;CheckStartupType&gt;true&lt;/CheckStartupType&gt;</MonitorConfig>
+        <MonitorOperationalStates>
+          <OperationalState>
+            <OperationalStateId>Running</OperationalStateId>
+            <OperationalStateDisplayName>Running</OperationalStateDisplayName>
+            <MonitorTypeStateId>Running</MonitorTypeStateId>
+            <HealthState>Success</HealthState>
+          </OperationalState>
+          <OperationalState>
+            <OperationalStateId>NotRunning</OperationalStateId>
+            <OperationalStateDisplayName>NotRunning</OperationalStateDisplayName>
+            <MonitorTypeStateId>NotRunning</MonitorTypeStateId>
+            <HealthState>Error</HealthState>
+          </OperationalState>
+        </MonitorOperationalStates>
+        <ParentMonitor>Health!System.Health.AvailabilityState</ParentMonitor>
+        <Accessibility>Internal</Accessibility>
+        <Id>Monitor.WindowsService.McAfeeEndPointSecurity</Id>
+        <DisplayName>McAfee Agent Windows Service Monitor</DisplayName>
+        <Description>McAfee Agent Windows Service Monitor.</Description>
+        <Target>GripLogix!GripLogix.McAfee.WindowsService.McAfeeEndPointSecurity</Target>
+        <Enabled>true</Enabled>
+        <Category>AvailabilityHealth</Category>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <AlertAutoResolve>true</AlertAutoResolve>
+        <AlertOnState>Error</AlertOnState>
+        <AlertPriority>Normal</AlertPriority>
+        <AlertSeverity>MatchMonitorHealth</AlertSeverity>
+        <AlertName>McAfee Windows Service stopped: {0} </AlertName>
+        <AlertDescription>McAfee Windows Service stopped: 
+$Data/Context/Property[@Name='DisplayName']$
+Check Health Explorer for more details.</AlertDescription>
+        <ConfirmDelivery>false</ConfirmDelivery>
+      </UnitMonitorConfig>
+    </Instance>
+    <Instance ID="Instance9dc7fb68d1d744f4bae620b41ec1e21a" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.UnitMonitor" Version="1.0.0.0">
+      <UnitMonitorConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <MonitorType>GripLogix.WebMon.WEBPage.MonitorType.WEBPageCheck.Status</MonitorType>
+        <MonitorConfig>&lt;IntervalSeconds&gt;900&lt;/IntervalSeconds&gt;&lt;SyncTime /&gt;&lt;Name&gt;McAfee ePolicy Orchestrator URL&lt;/Name&gt;&lt;Url&gt;https://localhost:8443/core/orionSplashScreen.do&lt;/Url&gt;&lt;ContentChecked&gt;ePolicy Orchestrator&lt;/ContentChecked&gt;&lt;ComputerName&gt;localhost&lt;/ComputerName&gt;&lt;TCPPort&gt;8443&lt;/TCPPort&gt;&lt;Debug&gt;true&lt;/Debug&gt;</MonitorConfig>
+        <MonitorOperationalStates>
+          <OperationalState>
+            <OperationalStateId>FAILED</OperationalStateId>
+            <OperationalStateDisplayName>FAILED</OperationalStateDisplayName>
+            <MonitorTypeStateId>FAILED</MonitorTypeStateId>
+            <HealthState>Error</HealthState>
+          </OperationalState>
+          <OperationalState>
+            <OperationalStateId>SUCCESS</OperationalStateId>
+            <OperationalStateDisplayName>SUCCESS</OperationalStateDisplayName>
+            <MonitorTypeStateId>SUCCESS</MonitorTypeStateId>
+            <HealthState>Success</HealthState>
+          </OperationalState>
+        </MonitorOperationalStates>
+        <ParentMonitor>Health!System.Health.AvailabilityState</ParentMonitor>
+        <Accessibility>Internal</Accessibility>
+        <Id>Monitor.URL.ePolicyOrchestrator</Id>
+        <DisplayName>McAfee ePolicyOrchestrator URL Monitor</DisplayName>
+        <Description>McAfee ePolicyOrchestrator URL Monitor.</Description>
+        <Target>GripLogix!GripLogix.McAfee.URL.ePolicyOrchestrator</Target>
+        <Enabled>true</Enabled>
+        <Category>AvailabilityHealth</Category>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <AlertAutoResolve>true</AlertAutoResolve>
+        <AlertOnState>Error</AlertOnState>
+        <AlertPriority>Normal</AlertPriority>
+        <AlertSeverity>MatchMonitorHealth</AlertSeverity>
+        <AlertName>McAfee ePolicy Orchestrator web page not available</AlertName>
+        <AlertDescription>McAfee ePolicy Orchestrator web page not available.
+Debug info: $Data/Context/Property[@Name='Debug']$</AlertDescription>
+        <ConfirmDelivery>false</ConfirmDelivery>
+      </UnitMonitorConfig>
+    </Instance>
+    <Instance ID="Instancef57fe9d693184ee2a248486f99691b43" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.UnitMonitor" Version="1.0.0.0">
+      <UnitMonitorConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <MonitorType>Windows!Microsoft.Windows.CheckNTServiceStateMonitorType</MonitorType>
+        <MonitorConfig>&lt;ComputerName&gt;$Target/Host/Host/Property[Type="Windows!Microsoft.Windows.Computer"]/PrincipalName$&lt;/ComputerName&gt;&lt;ServiceName&gt;$Target/Property[Type="GripLogix!GripLogix.McAfee.WindowsService.McAfeeAgent"]/ServiceName$&lt;/ServiceName&gt;&lt;CheckStartupType&gt;true&lt;/CheckStartupType&gt;</MonitorConfig>
+        <MonitorOperationalStates>
+          <OperationalState>
+            <OperationalStateId>Running</OperationalStateId>
+            <OperationalStateDisplayName>Running</OperationalStateDisplayName>
+            <MonitorTypeStateId>Running</MonitorTypeStateId>
+            <HealthState>Success</HealthState>
+          </OperationalState>
+          <OperationalState>
+            <OperationalStateId>NotRunning</OperationalStateId>
+            <OperationalStateDisplayName>NotRunning</OperationalStateDisplayName>
+            <MonitorTypeStateId>NotRunning</MonitorTypeStateId>
+            <HealthState>Error</HealthState>
+          </OperationalState>
+        </MonitorOperationalStates>
+        <ParentMonitor>Health!System.Health.AvailabilityState</ParentMonitor>
+        <Accessibility>Internal</Accessibility>
+        <Id>Monitor.WindowsService.McAfeeAgent</Id>
+        <DisplayName>McAfee Agent Windows Service Monitor</DisplayName>
+        <Description>McAfee Agent Windows Service Monitor.</Description>
+        <Target>GripLogix!GripLogix.McAfee.WindowsService.McAfeeAgent</Target>
+        <Enabled>true</Enabled>
+        <Category>AvailabilityHealth</Category>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <AlertAutoResolve>true</AlertAutoResolve>
+        <AlertOnState>Error</AlertOnState>
+        <AlertPriority>Normal</AlertPriority>
+        <AlertSeverity>MatchMonitorHealth</AlertSeverity>
+        <AlertName>McAfee Windows Service stopped: {0} </AlertName>
+        <AlertDescription>McAfee Windows Service stopped: 
+$Data/Context/Property[@Name='DisplayName']$
+Check Health Explorer for more details.</AlertDescription>
+        <ConfirmDelivery>false</ConfirmDelivery>
+      </UnitMonitorConfig>
+    </Instance>
+  </Instances>
+</TemplateGroup>

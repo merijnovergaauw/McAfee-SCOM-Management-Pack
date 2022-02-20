@@ -1,0 +1,40 @@
+﻿<ManagementPackFragment SchemaVersion="2.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <TypeDefinitions>
+    <EntityTypes>
+      <ClassTypes>
+        <ClassType ID="GripLogix.McAfee.McAfeeThreadPrevention" Base="Windows!Microsoft.Windows.ApplicationComponent" Accessibility="Public" Abstract="false" Hosted="true" Singleton="false">
+          <Property ID="Version" Key="false" Type="string" />
+          <Property ID="HotfixVersion" Key="false" Type="string" />
+          <Property ID="PatchVersion" Key="false" Type="string" />
+          <Property ID="InstallPath" Key="false" Type="string" />
+        </ClassType>
+      </ClassTypes>
+    </EntityTypes>
+  </TypeDefinitions>
+  <LanguagePacks>
+    <LanguagePack ID="ENU" IsDefault="true">
+      <DisplayStrings>
+        <DisplayString ElementID="GripLogix.McAfee.McAfeeThreadPrevention">
+          <Name>McAfee Thread Prevention</Name>
+          <Description></Description>
+        </DisplayString>
+        <DisplayString ElementID="GripLogix.McAfee.McAfeeThreadPrevention" SubElementID="Version">
+          <Name>Version</Name>
+          <Description></Description>
+        </DisplayString>
+        <DisplayString ElementID="GripLogix.McAfee.McAfeeThreadPrevention" SubElementID="HotfixVersion">
+          <Name>HotfixVersion</Name>
+          <Description></Description>
+        </DisplayString>
+        <DisplayString ElementID="GripLogix.McAfee.McAfeeThreadPrevention" SubElementID="PatchVersion">
+          <Name>PatchVersion</Name>
+          <Description></Description>
+        </DisplayString>
+        <DisplayString ElementID="GripLogix.McAfee.McAfeeThreadPrevention" SubElementID="InstallPath">
+          <Name>InstallPath</Name>
+          <Description></Description>
+        </DisplayString>        
+      </DisplayStrings>
+    </LanguagePack>
+  </LanguagePacks>
+</ManagementPackFragment>

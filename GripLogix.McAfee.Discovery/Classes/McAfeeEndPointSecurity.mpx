@@ -1,0 +1,45 @@
+﻿<ManagementPackFragment SchemaVersion="2.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <TypeDefinitions>
+    <EntityTypes>
+      <ClassTypes>
+        <ClassType ID="GripLogix.McAfee.McAfeeEndPointSecurity" Base="Windows!Microsoft.Windows.LocalApplication" Accessibility="Public" Abstract="false" Hosted="true" Singleton="false">
+          <Property ID="Version" Key="false" Type="string" />
+          <Property ID="HotfixVersion" Key="false" Type="string" />
+          <Property ID="PatchVersion" Key="false" Type="string" />
+          <Property ID="InstalledPath" Key="false" Type="string" />
+          <Property ID="RegKeyMcAfeeAgent" Key="false" Type="string" />          
+        </ClassType>
+      </ClassTypes>
+    </EntityTypes>
+  </TypeDefinitions>
+  <LanguagePacks>
+    <LanguagePack ID="ENU" IsDefault="true">
+      <DisplayStrings>
+        <DisplayString ElementID="GripLogix.McAfee.McAfeeEndPointSecurity">
+          <Name>McAfee EndPoint Security</Name>
+          <Description></Description>
+        </DisplayString>
+        <DisplayString ElementID="GripLogix.McAfee.McAfeeEndPointSecurity" SubElementID="InstalledPath">
+          <Name>Installed Path</Name>
+          <Description></Description>
+        </DisplayString>
+        <DisplayString ElementID="GripLogix.McAfee.McAfeeEndPointSecurity" SubElementID="Version">
+          <Name>Version</Name>
+          <Description></Description>
+        </DisplayString>
+        <DisplayString ElementID="GripLogix.McAfee.McAfeeEndPointSecurity" SubElementID="HotfixVersion">
+          <Name>Hotfix Version</Name>
+          <Description></Description>
+        </DisplayString>
+        <DisplayString ElementID="GripLogix.McAfee.McAfeeEndPointSecurity" SubElementID="PatchVersion">
+          <Name>Patch Version</Name>
+          <Description></Description>
+        </DisplayString>
+        <DisplayString ElementID="GripLogix.McAfee.McAfeeEndPointSecurity" SubElementID="RegKeyMcAfeeAgent">
+          <Name>RegKey McAfee Agent</Name>
+          <Description>The registry key which is used to discover the McAfee Agent. This key is needed and used for undiscovery purposes.</Description>
+        </DisplayString>
+      </DisplayStrings>
+    </LanguagePack>
+  </LanguagePacks>
+</ManagementPackFragment>
